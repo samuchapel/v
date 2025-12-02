@@ -171,31 +171,31 @@ function mudarPagina(id){
 switch(id){
     case 'panem':
         imgBox.style.backgroundImage =
-        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("img/particoes/panem.jpg")';
+        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("../static/img/particoes/panem.jpg")';
         imgBoxText.style.display = 'none';
         break;
 
     case 'd1':
         imgBox.style.backgroundImage =
-        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("img/particoes/d1.jpg")';
+        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("../static/img/particoes/d1.jpg")';
         imgBoxText.style.display = 'none';
         break;
 
     case 'd2':
         imgBox.style.backgroundImage =
-        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("img/particoes/d2.png")';
+        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("../static/img/particoes/d2.png")';
         imgBoxText.style.display = 'none';
         break;
 
     case 'd3':
         imgBox.style.backgroundImage =
-        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("img/particoes/d3.jpg")';
+        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("../static/img/particoes/d3.jpg")';
         imgBoxText.style.display = 'none';
         break;
 
     case 'd4':
         imgBox.style.backgroundImage =
-        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("img/particoes/d4.jpg")';
+        'linear-gradient(135deg, rgba(0,0,0,0.35), rgba(20,20,20,0.35)), url("../static/img/particoes/d4.jpg")';
         imgBoxText.style.display = 'none';
         break;
 
