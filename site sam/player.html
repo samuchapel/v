@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Jogador - Jogos de Purga</title>
+    <link rel="stylesheet" href="player.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
+
+        <nav>
+            <button class="btn-header" onclick="window.location.href='partições.html'">Partições</button>
+            <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Área do Jogador</h1>
+            <p class="page-subtitle">Prepare-se para entrar na arena</p>
+        </div>
+
+        <div class="sections-grid">
+            <div class="section-card" onclick="abrirCampanhas()">
+                <div class="section-icon">🎯</div>
+                <h2 class="section-title">Entrar em Campanha</h2>
+                <p class="section-description">
+                    Junte-se a uma campanha ativa e comece sua jornada nos Jogos de Purga.
+                </p>
+            </div>
+
+            <div class="section-card" onclick="abrirCriarPersonagem()">
+                <div class="section-icon">⚔️</div>
+                <h2 class="section-title">Criar Personagem</h2>
+                <p class="section-description">
+                    Crie seu tributo e prepare-se para lutar pela sobrevivência na arena.
+                </p>
+            </div>
+
+            <div class="section-card" onclick="abrirLivro()">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">Livro de Regras</h2>
+                <p class="section-description">
+                    Consulte as regras do jogo e junte-se à comunidade no Discord.
+                </p>
+            </div>
+        </div>
+
+        <div class="meus-personagens-container">
+            <div class="personagens-header">
+                <h2 class="personagens-title">Meus Personagens</h2>
+            </div>
+            <div class="personagens-list" id="personagens-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🎭</div>
+                    <h3>Nenhum personagem criado ainda</h3>
+                    <p>Crie seu primeiro tributo para começar sua aventura!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    </footer>
+
+    <!-- MODAL CAMPANHAS ATIVAS -->
+    <div class="modal" id="modal-campanhas">
+        <div class="modal-content">
+            <h2 class="modal-header">Campanhas Ativas</h2>
+            <div class="campanhas-disponiveis" id="campanhas-disponiveis">
+                <div class="loading">Carregando campanhas...</div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-cancel" onclick="fecharModal('modal-campanhas')">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CRIAR PERSONAGEM -->
+    <div class="modal" id="modal-personagem">
+        <div class="modal-content modal-large">
+            <h2 class="modal-header">Criar Novo Personagem</h2>
+            <form id="form-personagem" onsubmit="salvarPersonagem(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Tributo *</label>
+                        <input type="text" class="form-input" id="personagem-nome" required 
+                               placeholder="Ex: Katniss Everdeen">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Idade *</label>
+                        <input type="number" class="form-input" id="personagem-idade" required 
+                               min="12" max="18" placeholder="12-18">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Distrito *</label>
+                        <select class="form-input" id="personagem-distrito" required>
+                            <option value="">Selecione o distrito</option>
+                            <option value="1">Distrito 1 - Luxo</option>
+                            <option value="2">Distrito 2 - Pedreiras</option>
+                            <option value="3">Distrito 3 - Tecnologia</option>
+                            <option value="4">Distrito 4 - Pesca</option>
+                            <option value="5">Distrito 5 - Energia</option>
+                            <option value="6">Distrito 6 - Transporte</option>
+                            <option value="7">Distrito 7 - Madeira</option>
+                            <option value="8">Distrito 8 - Têxtil</option>
+                            <option value="9">Distrito 9 - Grãos</option>
+                            <option value="10">Distrito 10 - Pecuária</option>
+                            <option value="11">Distrito 11 - Agricultura</option>
+                            <option value="12">Distrito 12 - Mineração</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Classe *</label>
+                        <select class="form-input" id="personagem-classe" required>
+                            <option value="">Selecione a classe</option>
+                            <option value="Caçador">Caçador</option>
+                            <option value="Guerreiro">Guerreiro</option>
+                            <option value="Sobrevivente">Sobrevivente</option>
+                            <option value="Estrategista">Estrategista</option>
+                            <option value="Ágil">Ágil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">História de Fundo</label>
+                    <textarea class="form-textarea" id="personagem-historia" 
+                              placeholder="Conte a história do seu tributo..."></textarea>
+                </div>
+
+                <div class="atributos-section">
+                    <h3 class="section-subtitle">Atributos (Distribua 27 pontos)</h3>
+                    <p class="pontos-restantes">Pontos restantes: <span id="pontos-restantes">27</span></p>
+                    
+                    <div class="atributos-grid">
+                        <div class="atributo-item">
+                            <label class="form-label">Força</label>
+                            <input type="number" class="form-input atributo-input" id="attr-forca" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                        <div class="atributo-item">
+                            <label class="form-label">Destreza</label>
+                            <input type="number" class="form-input atributo-input" id="attr-destreza" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                        <div class="atributo-item">
+                            <label class="form-label">Constituição</label>
+                            <input type="number" class="form-input atributo-input" id="attr-constituicao" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                        <div class="atributo-item">
+                            <label class="form-label">Inteligência</label>
+                            <input type="number" class="form-input atributo-input" id="attr-inteligencia" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                        <div class="atributo-item">
+                            <label class="form-label">Sabedoria</label>
+                            <input type="number" class="form-input atributo-input" id="attr-sabedoria" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                        <div class="atributo-item">
+                            <label class="form-label">Carisma</label>
+                            <input type="number" class="form-input atributo-input" id="attr-carisma" 
+                                   min="1" max="18" value="8" onchange="calcularPontos()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-modal btn-cancel" onclick="fecharModal('modal-personagem')">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-modal btn-submit">
+                        Criar Personagem
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL LIVRO DE REGRAS -->
+    <div class="modal" id="modal-livro">
+        <div class="modal-content modal-large">
+            <h2 class="modal-header">📖 Livro de Regras - Jogos de Purga</h2>
+            
+            <div class="regras-content">
+                <h3 class="regras-titulo">⚔️ Regras Básicas</h3>
+                <p class="regras-texto">
+                    • <strong>Testes de Habilidade:</strong> Role 1d20 + modificador de atributo<br>
+                    • <strong>Dificuldade:</strong> Fácil (10), Média (15), Difícil (20), Muito Difícil (25)<br>
+                    • <strong>Combate:</strong> Role iniciativa (1d20 + Destreza) e aja em sua vez<br>
+                    • <strong>Vida:</strong> 10 + modificador de Constituição por nível
+                </p>
+
+                <h3 class="regras-titulo">🎯 Sistema de Ações</h3>
+                <p class="regras-texto">
+                    • <strong>Ação:</strong> Atacar, usar item, habilidade especial<br>
+                    • <strong>Movimento:</strong> Até 9 metros por turno<br>
+                    • <strong>Ação Bônus:</strong> Ações rápidas específicas<br>
+                    • <strong>Reação:</strong> Responder a eventos (1 por rodada)
+                </p>
+
+                <h3 class="regras-titulo">🏹 Combate e Armas</h3>
+                <p class="regras-texto">
+                    • <strong>Ataque:</strong> Role 1d20 + modificador + proficiência vs CA do alvo<br>
+                    • <strong>Dano:</strong> Role o dano da arma + modificador aplicável<br>
+                    • <strong>Crítico:</strong> 20 natural no d20 = dano dobrado<br>
+                    • <strong>Falha Crítica:</strong> 1 natural = consequências negativas
+                </p>
+
+                <h3 class="regras-titulo">💧 Sobrevivência na Arena</h3>
+                <p class="regras-texto">
+                    • <strong>Água:</strong> Necessária diariamente (desidratação causa dano)<br>
+                    • <strong>Comida:</strong> Importante para recuperação<br>
+                    • <strong>Descanso:</strong> 8 horas recupera pontos de vida<br>
+                    • <strong>Alianças:</strong> Trabalhe em equipe ou traia no momento certo
+                </p>
+
+                <h3 class="regras-titulo">🎲 Modificadores de Atributos</h3>
+                <p class="regras-texto">
+                    1-2 = -4 | 3-4 = -3 | 5-6 = -2 | 7-8 = -1 | 9-10 = 0<br>
+                    11-12 = +1 | 13-14 = +2 | 15-16 = +3 | 17-18 = +4
+                </p>
+
+                <div class="discord-section">
+                    <h3 class="regras-titulo">💬 Junte-se à Comunidade</h3>
+                    <p class="regras-texto">
+                        Entre no nosso servidor do Discord para encontrar grupos, tirar dúvidas e participar de eventos!
+                    </p>
+                    <a href="https://discord.gg/seuservidor" target="_blank" class="btn-discord">
+                        <span class="discord-icon">💬</span>
+                        Entrar no Discord
+                    </a>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-submit" onclick="fecharModal('modal-livro')">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+</html>

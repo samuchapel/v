@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal</title>
+    <link rel="stylesheet" href="arsenal.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">Jogos Vorazes</span>
+    </a>
+
+    <nav>
+        <button class="btn-header" onclick="window.location.href='partições.html'">Distrito</button>
+        <button class="btn-header active" onclick="window.location.href='arsenal.html'">Arsenal</button>
+        <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero fade-container" id="heroContainer">
+    <h1 id="tituloHero">Arsenal</h1>
+    <h2 id="subtituloHero">Selecione o tipo de arma para visualizar os dados</h2>
+
+    <div class="btn-area">
+        <button onclick="mudarArsenal('simples')">Simples</button>
+        <button onclick="mudarArsenal('tatica')">Tática</button>
+        <button onclick="mudarArsenal('pesada')">Pesada</button>
+        <button onclick="mudarArsenal('geral')">Itens Gerais</button>
+    </div>
+</section>
+
+<!-- MAIN (limpo e centralizado) -->
+<main class="fade-container" id="mainContainer">
+    <div class="tabela-container">
+        <h1 class="titulo-principal" id="tituloPrincipal" style="text-align: center; margin-bottom: 20px;">Selecione uma categoria</h1>
+        <p class="lista" id="listaTitulo">INFORMAÇÕES DETALHADAS AQUI</p>
+        <table id="tabelaInfo"></table>
+    </div>
+</main>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+    <div class="popup-content">
+        <span id="popupClose" class="popup-close">&times;</span>
+
+        <h2 id="popupTitulo"></h2>
+
+        <!-- imagem opcional (não quebra caso não exista) -->
+        <img id="popupImg" class="popup-img" src="" alt="arma">
+
+        <p id="popupDescricao"></p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p class="copy">© 2024 Projeto baseado em Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+</footer>
+
+<script src="arsenal.js"></script>
+</body>
+</html>

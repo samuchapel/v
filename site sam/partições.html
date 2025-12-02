@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distritos</title>
+    <link rel="stylesheet" href="partições.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">jogos Vorazes</span>
+    </a>
+        <nav>
+        <button class="btn-header active" onclick="window.location.href='partições.html'">Distritos</button>
+        <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+        <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+    </nav>
+</header>
+
+<section class="hero" id="heroContainer" aria-labelledby="tituloHero">
+    <h1 id="tituloHero">Panem</h1>
+    <h2 id="subtituloHero">Capital e distritos unificados</h2>
+
+    <div class="btn-area" role="tablist" aria-label="Partições">
+        <button class="btn-distrito" data-id="d1" onclick="mudarPagina('d1')">Distrito 1</button>
+        <button class="btn-distrito" data-id="d2" onclick="mudarPagina('d2')">Distrito 2</button>
+        <button class="btn-distrito active" data-id="panem" onclick="mudarPagina('panem')">Panem</button>
+        <button class="btn-distrito" data-id="d3" onclick="mudarPagina('d3')">Distrito 3</button>
+        <button class="btn-distrito" data-id="d4" onclick="mudarPagina('d4')">Distrito 4</button>
+    </div>
+</section>
+
+<main id="mainContainer" role="main">
+    <div class="left-box" aria-labelledby="listaTitulo">
+        <div class="img-box" id="imgBox" role="img" aria-label="Imagem da partição">
+            <p id="imgBoxText" style="color:#d4af37; font-weight:800; font-size:22px; text-transform:uppercase;">CIRCUS</p>
+        </div>
+
+        <p class="lista" id="listaTitulo">LISTA SOBRE OS IDEALIZADORES DOS JOGOS</p>
+
+        <table id="tabelaInfo" aria-describedby="listaTitulo" role="table">
+            <!-- Tabela será preenchida dinamicamente -->
+        </table>
+    </div>
+
+    <div class="info" aria-live="polite">
+        <h1 class="titulo-principal" id="tituloPrincipal">Panem</h1>
+        <p id="descricao">Panem é o coração brilhante — e cruel — de toda a nação. Oficialmente, é apresentada como o símbolo máximo de ordem, progresso e unidade. Mas para as Partições, ela é conhecida por outro nome: Medo. É da Capital que surgem as leis, as armas, os tributos e a vigilância constante que mantêm cada distrito sob controle. Rica, luxuosa e tecnologicamente avançada, Circus exibe sua glória como um lembrete de que o poder pertence a ela e mais ninguém.</p>
+    </div>
+</main>
+
+<!-- Modal -->
+<div id="modalHistoria" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+        <button class="close" aria-label="Fechar" id="btnCloseModal">&times;</button>
+        <h2 id="modalTitulo"></h2>
+        <p id="modalTexto"></p>
+    </div>
+</div>
+
+<footer>
+    <p class="copy">© 2024 Projeto baseado em Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+</footer>
+
+<script src="partições.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstruário</title>
+    <link rel="stylesheet" href="monstruario.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">Jogos Vorazes</span>
+    </a>
+
+    <nav>
+        <button class="btn-header" onclick="window.location.href='partições.html'">Distrito</button>
+        <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+        <button class="btn-header active" onclick="window.location.href='monstruario.html'">Monstruário</button>
+    </nav>
+</header>
+
+
+<section class="hero fade-container" id="heroContainer">
+    <h1 id="tituloHero">Monstruário</h1>
+    <h2 id="subtituloHero">Selecione o tipo de criatura para visualizar os dados</h2>
+
+    <div class="btn-area">
+        <button onclick="mudarMonstruario('animais')">Animais</button>
+        <button onclick="mudarMonstruario('bestantes')">Bestantes</button>
+    </div>
+</section>
+
+<main class="fade-container" id="mainContainer">
+    <div class="monsters-container">
+        <h1 class="titulo-principal" id="tituloPrincipal" style="text-align: center; margin-bottom: 20px;">Selecione uma categoria</h1>
+        <p class="lista" id="listaTitulo">INFORMAÇÕES DETALHADAS AQUI</p>
+        <table id="tabelaInfo"></table>
+    </div>
+</main>
+
+<div id="monsterModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="fecharModal()">&times;</span>
+        <div class="modal-body">
+            <h2 class="modal-title" id="modalNomeCriatura"></h2>
+            <div class="modal-image-box" id="modalImgBox">Imagem ilustrativa</div>
+            <p class="modal-description" id="modalDescricao"></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p></p>
+    <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+</footer>
+    <script src="monstruario.js"></script>
+</body>
+</html>

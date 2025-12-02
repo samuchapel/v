@@ -1,0 +1,287 @@
+/* =========================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================= */
+/* Remove margens e espaçamentos padrão e ajuda no controle do design */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Garante que o body ocupe toda a tela */
+html,body { height:100%; }
+
+/* Estilos gerais do body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#2d2d2d 100%);
+    color:#fff;
+    min-height:100vh;
+    display:flex; flex-direction:column;
+    position:relative; overflow-x:hidden;
+}
+
+/* Efeito visual brilhante no fundo */
+body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212,175,55,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(212,175,55,0.05) 0%, transparent 40%);
+    animation: pulseBackground 10s ease-in-out infinite;
+}
+/* Respiração suave do fundo */
+@keyframes pulseBackground{
+    0%,100%{opacity:1}
+    50%{opacity:0.6}
+}
+
+/* HEADER */
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 245, 0.98) 100%);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #d4af37;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            height: 55px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .logo-text {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, #555 0%, #6b6b6b 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-header:hover::before {
+            left: 100%;
+        }
+
+        .btn-header:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-header.active {
+            background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+/* =========================
+   HERO (TELA INICIAL)
+   ========================= */
+.hero{
+    text-align:center; margin-top:48px; z-index:1; padding:0 20px;
+}
+
+/* Título grande brilhante */
+.hero h1{
+    font-size:56px; margin-bottom:8px;
+    background:linear-gradient(135deg,#fff,#d4af37 50%,#f0c654 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    letter-spacing:2px;
+}
+
+/* Subtítulo */
+.hero h2{
+    font-weight:300; color:#c4c4c4; font-size:18px;
+    max-width:920px; margin:0 auto; line-height:1.6;
+}
+
+/* Botões de partições */
+.btn-area{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn-distrito{
+    padding:12px 28px; border-radius:28px;
+    border:2px solid rgba(212,175,55,0.3);
+    background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+    cursor:pointer; font-weight:700; transition:all .25s ease;
+}
+.btn-distrito:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 36px rgba(212,175,55,0.18);
+}
+/* Botão selecionado */
+.btn-distrito.active{
+    background:linear-gradient(135deg,#d4af37,#f0c654);
+    color:#000; border-color:#f0c654;
+}
+
+/* =========================
+   MAIN (CONTEÚDO DOS DISTRITOS)
+   ========================= */
+main{
+    display:flex; gap:40px;
+    justify-content:center; align-items:flex-start;
+    padding:48px 60px 80px;
+    max-width:1400px; margin:40px auto 0;
+    z-index:1;
+}
+
+/* Lado da imagem */
+.left-box{ flex:0 0 420px; text-align:center; }
+
+/* Card da imagem com efeitos */
+.img-box{
+    height:320px; border-radius:18px;
+    border:3px solid rgba(212,175,55,0.35);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    overflow:hidden; background-size:cover; background-position:center;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.img-box:hover{
+    transform:translateY(-6px) scale(1.02);
+    border-color:#d4af37;
+    box-shadow:0 18px 54px rgba(212,175,55,0.28);
+}
+
+/* Título da lista */
+.lista{
+    margin-top:20px; color:#d4af37;
+    font-weight:800; letter-spacing:1.6px;
+    text-transform:uppercase; font-size:13px;
+}
+
+/* Tabela com vencedores / organizadores */
+#tabelaInfo{
+    margin-top:18px; width:100%; border-collapse:collapse;
+    border-radius:12px; overflow:hidden;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4);
+}
+#tabelaInfo th{
+    padding:12px;
+    background:linear-gradient(135deg,#d4af37,#f0c654);
+    color:#000; font-weight:800; font-size:13px;
+    text-transform:uppercase; letter-spacing:1px;
+}
+#tabelaInfo td{
+    padding:12px;
+    background:rgba(255,255,255,0.03);
+    color:#fff; border-bottom:1px solid rgba(255,255,255,0.03);
+    cursor:pointer; text-align:left;
+}
+#tabelaInfo tr:hover td{
+    background:rgba(212,175,55,0.12); color:#d4af37;
+}
+
+/* Lado do texto */
+.info{ flex:1; max-width:720px; }
+
+/* Título do distrito */
+.titulo-principal{
+    font-size:48px; margin-bottom:18px;
+    background:linear-gradient(135deg,#fff,#d4af37 50%,#f0c654);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    font-weight:800; letter-spacing:2px;
+}
+
+/* Caixa com descrição */
+#descricao{
+    font-size:17px; color:#d4d4d4; line-height:1.8;
+    text-align:justify; padding:26px;
+    background:rgba(255,255,255,0.03);
+    border-left:5px solid #d4af37; border-radius:10px;
+    box-shadow:0 6px 28px rgba(0,0,0,0.28);
+}
+
+/* =========================
+   RODAPÉ
+   ========================= */
+footer{
+    margin-top:48px; padding:22px 16px;
+    text-align:center; color:#c4c4c4;
+    border-top:3px solid #d4af37;
+}
+
+/* =========================
+   MODAL (pop-up de detalhes)
+   ========================= */
+.modal{
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.85);
+    z-index:1200; align-items:center; justify-content:center; padding:30px;
+}
+.modal.show{ display:flex; }
+
+.modal-content{
+    width:100%; max-width:760px;
+    background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+    border-radius:14px; padding:32px;
+    border:3px solid #d4af37;
+    box-shadow:0 18px 60px rgba(0,0,0,0.6);
+}
+
+.modal h2{ color:#d4af37; margin-bottom:12px; font-size:26px; }
+.modal p{ color:#d4d4d4; line-height:1.8; font-size:16px; }
+
+.close{
+    position:absolute; right:24px; top:18px;
+    font-size:28px; color:#d4af37;
+    cursor:pointer; font-weight:800;
+}
+.close:hover{ color:#f0c654; transform:rotate(90deg); }
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width:1024px){
+    /* Empilha o conteúdo no mobile */
+    main{ flex-direction:column; align-items:center; padding:36px; gap:28px; }
+    .left-box{ width:100%; max-width:520px; }
+    .titulo-principal{ font-size:36px; text-align:center; }
+}
+@media (max-width:700px){
+    header{ padding:12px 16px; gap:12px; flex-direction:column; align-items:flex-start; }
+    nav{ width:100%; display:flex; gap:8px; justify-content:flex-start; flex-wrap:wrap; }
+    .hero h1{ font-size:34px; }
+    .btn-distrito{ padding:10px 14px; font-size:13px; }
+    #descricao{ font-size:15px; padding:16px; }
+}

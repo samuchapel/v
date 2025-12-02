@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Mestre - Jogos de Purga</title>
+    <link rel="stylesheet" href="mestre.css">
+</head>
+<body>
+    <header>
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">jogos Vorazes</span>
+    </a>
+
+    <nav>
+        <button class="btn-header" onclick="window.location.href='partições.html'">Partições</button>
+        <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+        <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+    </nav>
+</header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Área do Mestre</h1>
+            <p class="page-subtitle">Controle total sobre seus jogos</p>
+        </div>
+
+        <div class="sections-grid">
+            <div class="section-card" onclick="mostrarSistema()">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">Sistema de Jogo</h2>
+                <p class="section-description">
+                    Aprenda as regras, mecânicas e como conduzir uma sessão épica dos Jogos de Purga.
+                </p>
+            </div>
+
+        <div class="campanhas-container" id="campanhas-section">
+            <div class="campanhas-header">
+                <h2 class="campanhas-title">Campanhas Ativas</h2>
+                <button class="btn-nova-campanha" onclick="abrirModalNovaCampanha()">
+                    + Nova Campanha
+                </button>
+            </div>
+
+            <div class="campanhas-list" id="campanhas-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🎭</div>
+                    <h3>Nenhuma campanha criada ainda</h3>
+                    <p>Comece sua jornada criando sua primeira campanha!</p>
+                </div>
+                
+        
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    </footer>
+
+    <!-- MODAL NOVA CAMPANHA -->
+    <div class="modal" id="modal-campanha">
+        <div class="modal-content">
+            <h2 class="modal-header">Nova Campanha</h2>
+            <form id="form-campanha" onsubmit="salvarCampanha(event)">
+                <div class="form-group">
+                    <label class="form-label">Nome da Campanha *</label>
+                    <input type="text" class="form-input" id="campanha-nome" required 
+                           placeholder="Ex: Os Jogos da 75ª Edição">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Descrição</label>
+                    <textarea class="form-textarea" id="campanha-descricao" 
+                              placeholder="Descreva o tema e objetivo desta campanha..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Número de Jogadores</label>
+                    <input type="number" class="form-input" id="campanha-jogadores" 
+                           min="1" max="20" value="4" placeholder="4">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Arena/Local</label>
+                    <input type="text" class="form-input" id="campanha-local" 
+                           placeholder="Ex: Floresta Circular, Cidade Abandonada">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-modal btn-cancel" onclick="fecharModal()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-modal btn-submit">
+                        Criar Campanha
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL SISTEMA -->
+    <div class="modal" id="modal-sistema">
+        <div class="modal-content">
+            <h2 class="modal-header">Sistema de Jogo - Jogos de Purga</h2>
+            
+            <h3 style="color: #d4af37; margin: 20px 0 10px;">📋 Conceito</h3>
+            <p style="line-height: 1.8; color: #cccccc; margin-bottom: 20px;">
+                Os Jogos de Purga é um RPG de sobrevivência ambientado no mundo de Circus, 
+                onde tributos lutam pela sobrevivência em arenas mortais. O mestre controla 
+                o ambiente, monstros e NPCs, enquanto os jogadores tomam decisões que podem 
+                determinar vida ou morte.
+            </p>
+
+            <h3 style="color: #d4af37; margin: 20px 0 10px;">🎲 Mecânicas Básicas</h3>
+            <p style="line-height: 1.8; color: #cccccc; margin-bottom: 20px;">
+                • <strong>Testes de Habilidade:</strong> Role 1d20 + modificador<br>
+                • <strong>Combate:</strong> Iniciativa → Ações → Resolução<br>
+                • <strong>Recursos:</strong> Gerencie água, comida e equipamentos<br>
+                • <strong>Alianças:</strong> Coopere ou traia outros tributos
+            </p>
+
+            <h3 style="color: #d4af37; margin: 20px 0 10px;">⚔️ Papel do Mestre</h3>
+            <p style="line-height: 1.8; color: #cccccc; margin-bottom: 20px;">
+                • Criar desafios e perigos na arena<br>
+                • Interpretar monstros e NPCs<br>
+                • Gerenciar o tempo e eventos especiais<br>
+                • Equilibrar dificuldade e diversão<br>
+                • Narrar as consequências das ações
+            </p>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-submit" onclick="fecharModalSistema()">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="mestre.js"></script>
+</body>
+</html>

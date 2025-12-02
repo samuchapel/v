@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Jogador - Jogos Vorazes</title>
+    <link rel="stylesheet" href="playerlg.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
+
+        <nav>
+            <button class="btn-header" onclick="window.location.href='partições.html'">Distritos</button>
+            <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-titulo">Área do Jogador</div>
+                <h1 class="login-subtitulo">Entrar na Arena</h1>
+                <p class="login-descricao">Prepare-se para os Jogos. Entre com suas credenciais de tributo.</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="username">Nome de Usuário</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        class="form-input" 
+                        placeholder="Digite seu nome de tributo"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Senha</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="form-input" 
+                        placeholder="Digite sua senha secreta"
+                        required
+                    >
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Lembrar de mim</label>
+                    </div>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Entrar na Arena</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Ainda não é um tributo? <a href="register.html">Registre-se agora</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    </footer>
+
+    <script src="playerlg.js"></script>
+</body>
+</html>

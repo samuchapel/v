@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Mestre - Jogos Vorazes</title>
+<link rel="stylesheet" href="mestrelg.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
+
+        <nav>
+            <button class="btn-header" onclick="window.location.href='partições.html'">Distritos</button>
+            <button class="btn-header" onclick="window.location.href='arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="mestre-badge">Acesso Restrito</div>
+            
+            <div class="login-header">
+                <div class="login-titulo">Painel do Mestre</div>
+                <h1 class="login-subtitulo">Controle dos Jogos</h1>
+                <p class="login-descricao">Acesso exclusivo para Mestres de Jogo. Controle a arena, gerencie tributos e conduza os Jogos Vorazes.</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleMasterLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="username">Identificação do Mestre</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        class="form-input" 
+                        placeholder="Digite seu nome de mestre"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Senha de Controle</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="form-input" 
+                        placeholder="Digite sua senha de acesso"
+                        required
+                    >
+                </div>
+
+                <div class="form-group access-code-group">
+                    <div class="access-code-label">
+                        <span class="access-code-icon">🔐</span>
+                        <label class="form-label" for="accesscode" style="margin: 0;">Código de Acesso Mestre</label>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="accesscode" 
+                        class="form-input" 
+                        placeholder="Digite o código de autorização"
+                        required
+                        maxlength="12"
+                    >
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Manter sessão ativa</label>
+                    </div>
+                    <a href="#" class="forgot-password">Recuperar acesso</a>
+                </div>
+
+                <button type="submit" class="btn-login" >Acessar Painel</button>
+            </form>
+
+            <div class="login-footer">
+                <div class="admin-note">
+                    <div class="admin-note-title"> Nota Importante</div>
+                    <div class="admin-note-text">
+                        Este é um painel administrativo com privilégios elevados. O código de acesso é fornecido apenas para Mestres autorizados. Todos os acessos são registrados e monitorados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    </footer>
+    <script src="mestrelg.js"></script>
+</body>
+</html>
