@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Configuração básica de charset e responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Arena dos Jogos</title>
-<link rel="stylesheet" href="/static/styles/register.css">
-</head>
-<body>
-    <header>
-    <a href="/index.html" class="logo">
-        <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
-        <span class="logo-text">jogos Vorazes</span>
-    </a>
 
-    <nav>
-        <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
-    </nav>
-</header>
+    <!-- Título da página -->
+    <title>Registro - Arena dos Jogos</title>
+
+    <!-- CSS específico da página de registro -->
+    <link rel="stylesheet" href="/static/styles/register.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho com logo e navegação -->
+    <header>
+        <a href="/index.html" class="logo">
+            <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
+
+        <nav>
+            <!-- Botões de navegação para outras áreas do site -->
+            <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
 
     <main>
         <div class="register-container">
+
+            <!-- Cabeçalho do formulário -->
             <div class="register-header">
                 <p class="register-titulo">Junte-se à Arena</p>
                 <h1 class="register-subtitulo">Criar Conta</h1>
@@ -30,13 +41,17 @@
                 </p>
             </div>
 
+            <!-- Escolha do tipo de conta (Jogador ou Mestre) -->
             <div class="account-type">
+                <!-- Opção Jogador -->
                 <label class="type-option active">
                     <input type="radio" name="accountType" value="player" checked>
                     <div class="type-icon">🎮</div>
                     <div class="type-title">Jogador</div>
                     <div class="type-desc">Participe dos jogos</div>
                 </label>
+
+                <!-- Opção Mestre -->
                 <label class="type-option">
                     <input type="radio" name="accountType" value="master">
                     <div class="type-icon">👑</div>
@@ -45,7 +60,10 @@
                 </label>
             </div>
 
+            <!-- Formulário de registro -->
             <form class="register-form" id="registerForm">
+
+                <!-- Nome e sobrenome lado a lado -->
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="firstName">Nome</label>
@@ -57,6 +75,7 @@
                             required
                         >
                     </div>
+
                     <div class="form-group">
                         <label class="form-label" for="lastName">Sobrenome</label>
                         <input 
@@ -69,6 +88,7 @@
                     </div>
                 </div>
 
+                <!-- Nome de usuário -->
                 <div class="form-group full-width">
                     <label class="form-label" for="username">Nome de Usuário</label>
                     <input 
@@ -78,9 +98,11 @@
                         placeholder="Escolha seu nome de usuário"
                         required
                     >
+                    <!-- Mensagem caso o nome já exista -->
                     <span class="error-message" id="usernameError">Nome de usuário já existe</span>
                 </div>
 
+                <!-- Email -->
                 <div class="form-group full-width">
                     <label class="form-label" for="email">Email</label>
                     <input 
@@ -90,9 +112,11 @@
                         placeholder="seu@email.com"
                         required
                     >
+                    <!-- Email inválido -->
                     <span class="error-message" id="emailError">Email inválido</span>
                 </div>
 
+                <!-- Senha e confirmação de senha -->
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="password">Senha</label>
@@ -103,6 +127,8 @@
                             placeholder="Crie uma senha forte"
                             required
                         >
+
+                        <!-- Indicador visual de força da senha -->
                         <div class="password-strength">
                             <div class="strength-bar"></div>
                             <div class="strength-bar"></div>
@@ -110,6 +136,7 @@
                             <div class="strength-bar"></div>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="form-label" for="confirmPassword">Confirmar Senha</label>
                         <input 
@@ -121,8 +148,11 @@
                         >
                     </div>
                 </div>
+
+                <!-- Erro caso as senhas não coincidam -->
                 <span class="error-message" id="passwordError">As senhas não coincidem</span>
 
+                <!-- Campo secreto para conta Mestre (aparece via JS) -->
                 <div class="form-group full-width" id="accessCodeGroup" style="display: none;">
                     <label class="form-label" for="masterCode">Código de Acesso de Mestre</label>
                     <input 
@@ -135,6 +165,7 @@
                     <span class="error-message" id="codeError">Código de acesso inválido</span>
                 </div>
 
+                <!-- Termos e política -->
                 <div class="checkbox-group">
                     <input type="checkbox" id="terms" required>
                     <label for="terms">
@@ -142,6 +173,7 @@
                     </label>
                 </div>
 
+                <!-- Newsletter opcional -->
                 <div class="checkbox-group">
                     <input type="checkbox" id="newsletter">
                     <label for="newsletter">
@@ -149,19 +181,24 @@
                     </label>
                 </div>
 
+                <!-- Botão final -->
                 <button type="submit" class="btn-register">Criar Conta</button>
             </form>
 
+            <!-- Link para login -->
             <div class="register-footer">
                 <p>Já possui uma conta? <a href="/playerlg.html">Entre agora</a></p>
             </div>
         </div>
     </main>
 
+    <!-- Rodapé -->
     <footer>
-    <p></p>
-    <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
-</footer>
-<script src="/static/js/register.js"></script>
+        <p></p>
+        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    </footer>
+
+    <!-- Arquivo JS com regras de validação e lógica do formulário -->
+    <script src="/static/js/register.js"></script>
 </body>
 </html>

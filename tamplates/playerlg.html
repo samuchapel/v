@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Define a codificação do documento -->
     <meta charset="UTF-8">
+
+    <!-- Mantém o layout responsivo em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título exibido na aba do navegador -->
     <title>Login Jogador - Jogos Vorazes</title>
+
+    <!-- Arquivo CSS ligado à página de login do jogador -->
     <link rel="stylesheet" href="/static/styles/playerlg.css">
 </head>
-<body>
-    <header>
-    <a href="/index.html" class="logo">
-        <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
-        <span class="logo-text">jogos Vorazes</span>
-    </a>
 
-    <nav>
-        <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
-    </nav>
-</header>
+<body>
+
+    <!-- Cabeçalho principal do site -->
+    <header>
+        <!-- Logo que redireciona para a página inicial -->
+        <a href="/index.html" class="logo">
+            <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
+
+        <!-- Barra de navegação com botões para outras páginas -->
+        <nav>
+            <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
 
     <main>
         <div class="login-container">
+
+            <!-- Cabeçalho/intros do formulário de login -->
             <div class="login-header">
                 <div class="login-titulo">Área do Jogador</div>
                 <h1 class="login-subtitulo">Entrar na Arena</h1>
-                <p class="login-descricao">Prepare-se para os Jogos. Entre com suas credenciais de tributo.</p>
+                <p class="login-descricao">
+                    Prepare-se para os Jogos. Entre com suas credenciais de tributo.
+                </p>
             </div>
 
+            <!-- Formulário de login -->
+            <!-- Ao enviar, dispara a função handleLogin() no arquivo playerlg.js -->
             <form class="login-form" onsubmit="handleLogin(event)">
+
+                <!-- Campo de usuário -->
                 <div class="form-group">
                     <label class="form-label" for="username">Nome de Usuário</label>
                     <input 
@@ -40,6 +60,7 @@
                     >
                 </div>
 
+                <!-- Campo de senha -->
                 <div class="form-group">
                     <label class="form-label" for="password">Senha</label>
                     <input 
@@ -51,27 +72,38 @@
                     >
                 </div>
 
+                <!-- Linha com 'lembrar de mim' e link de esqueci a senha -->
                 <div class="form-options">
                     <div class="checkbox-group">
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember">Lembrar de mim</label>
                     </div>
+
                     <a href="#" class="forgot-password">Esqueceu a senha?</a>
                 </div>
 
+                <!-- Botão principal do formulário -->
                 <button type="submit" class="btn-login">Entrar na Arena</button>
             </form>
 
+            <!-- Rodapé interno do card de login -->
             <div class="login-footer">
-                <p>Ainda não é um tributo? <a href="register.html">Registre-se agora</a></p>
+                <p>
+                    Ainda não é um tributo? 
+                    <a href="register.html">Registre-se agora</a>
+                </p>
             </div>
+
         </div>
     </main>
 
+    <!-- Rodapé geral do site -->
     <footer>
         <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
     </footer>
 
+    <!-- Arquivo JS com a lógica do login -->
     <script src="/static/js/playerlg.js"></script>
+
 </body>
 </html>

@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título mostrado na aba do navegador -->
     <title>Área do Jogador - Jogos de Purga</title>
+
+    <!-- Importa o CSS específico desta página -->
     <link rel="stylesheet" href="/static/styles/player.css">
 </head>
+
 <body>
+
+    <!-- ================= CABEÇALHO ================= -->
     <header>
-    <a href="/index.html" class="logo">
-        <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
-        <span class="logo-text">jogos Vorazes</span>
-    </a>
+        <!-- Logo que leva para a página inicial -->
+        <a href="/index.html" class="logo">
+            <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
+            <span class="logo-text">jogos Vorazes</span>
+        </a>
 
-    <nav>
-        <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
-        <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
-    </nav>
-</header>
+        <!-- Navegação principal -->
+        <nav>
+            <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
+            <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
+        </nav>
+    </header>
 
+
+
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
     <main>
+
+        <!-- Título da página -->
         <div class="page-header">
             <h1 class="page-title">Área do Jogador</h1>
             <p class="page-subtitle">Prepare-se para entrar na arena</p>
         </div>
 
+        <!-- Cartões de navegação das funções principais -->
         <div class="sections-grid">
+
+            <!-- Entrar em campanha -->
             <div class="section-card" onclick="abrirCampanhas()">
                 <div class="section-icon">🎯</div>
                 <h2 class="section-title">Entrar em Campanha</h2>
@@ -35,6 +52,7 @@
                 </p>
             </div>
 
+            <!-- Criar personagem -->
             <div class="section-card" onclick="abrirCriarPersonagem()">
                 <div class="section-icon">⚔️</div>
                 <h2 class="section-title">Criar Personagem</h2>
@@ -43,6 +61,7 @@
                 </p>
             </div>
 
+            <!-- Livro de regras -->
             <div class="section-card" onclick="abrirLivro()">
                 <div class="section-icon">📖</div>
                 <h2 class="section-title">Livro de Regras</h2>
@@ -52,31 +71,54 @@
             </div>
         </div>
 
+
+
+        <!-- ================= LISTA DE PERSONAGENS DO USUÁRIO ================= -->
         <div class="meus-personagens-container">
+
+            <!-- Título da seção -->
             <div class="personagens-header">
                 <h2 class="personagens-title">Meus Personagens</h2>
             </div>
+
+            <!-- Lista dinâmica -->
             <div class="personagens-list" id="personagens-list">
+
+                <!-- Estado vazio (quando não há personagens criados) -->
                 <div class="empty-state">
                     <div class="empty-state-icon">🎭</div>
                     <h3>Nenhum personagem criado ainda</h3>
                     <p>Crie seu primeiro tributo para começar sua aventura!</p>
                 </div>
+
             </div>
         </div>
     </main>
 
+
+
+    <!-- ================= RODAPÉ ================= -->
     <footer>
         <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
     </footer>
 
-    <!-- MODAL CAMPANHAS ATIVAS -->
+
+
+    <!-- ==================================================
+         MODAL: CAMPANHAS ATIVAS
+         ================================================== -->
     <div class="modal" id="modal-campanhas">
         <div class="modal-content">
+
+            <!-- Título do modal -->
             <h2 class="modal-header">Campanhas Ativas</h2>
+
+            <!-- Lista carregada via JS -->
             <div class="campanhas-disponiveis" id="campanhas-disponiveis">
                 <div class="loading">Carregando campanhas...</div>
             </div>
+
+            <!-- Botões -->
             <div class="modal-actions">
                 <button type="button" class="btn-modal btn-cancel" onclick="fecharModal('modal-campanhas')">
                     Fechar
@@ -85,12 +127,22 @@
         </div>
     </div>
 
-    <!-- MODAL CRIAR PERSONAGEM -->
+
+
+    <!-- ==================================================
+         MODAL: CRIAR PERSONAGEM
+         ================================================== -->
     <div class="modal" id="modal-personagem">
         <div class="modal-content modal-large">
+
             <h2 class="modal-header">Criar Novo Personagem</h2>
+
+            <!-- Formulário de criação -->
             <form id="form-personagem" onsubmit="salvarPersonagem(event)">
+
+                <!-- Nome e idade -->
                 <div class="form-row">
+
                     <div class="form-group">
                         <label class="form-label">Nome do Tributo *</label>
                         <input type="text" class="form-input" id="personagem-nome" required 
@@ -102,25 +154,20 @@
                         <input type="number" class="form-input" id="personagem-idade" required 
                                min="12" max="18" placeholder="12-18">
                     </div>
+
                 </div>
 
+                <!-- Distrito e classe -->
                 <div class="form-row">
+
                     <div class="form-group">
                         <label class="form-label">Distrito *</label>
                         <select class="form-input" id="personagem-distrito" required>
                             <option value="">Selecione o distrito</option>
-                            <option value="1">Distrito 1 - Luxo</option>
-                            <option value="2">Distrito 2 - Pedreiras</option>
-                            <option value="3">Distrito 3 - Tecnologia</option>
-                            <option value="4">Distrito 4 - Pesca</option>
-                            <option value="5">Distrito 5 - Energia</option>
-                            <option value="6">Distrito 6 - Transporte</option>
-                            <option value="7">Distrito 7 - Madeira</option>
-                            <option value="8">Distrito 8 - Têxtil</option>
-                            <option value="9">Distrito 9 - Grãos</option>
-                            <option value="10">Distrito 10 - Pecuária</option>
-                            <option value="11">Distrito 11 - Agricultura</option>
-                            <option value="12">Distrito 12 - Mineração</option>
+                            <option value="1">Distrito 1 - academia</option>
+                            <option value="2">Distrito 2 - Tecnologia</option>
+                            <option value="3">Distrito 3 - militar</option>
+                            <option value="4">Distrito 4 - brutos</option>
                         </select>
                     </div>
 
@@ -135,70 +182,97 @@
                             <option value="Ágil">Ágil</option>
                         </select>
                     </div>
+
                 </div>
 
+                <!-- História -->
                 <div class="form-group">
                     <label class="form-label">História de Fundo</label>
                     <textarea class="form-textarea" id="personagem-historia" 
                               placeholder="Conte a história do seu tributo..."></textarea>
                 </div>
 
+                <!-- Atributos -->
                 <div class="atributos-section">
+
                     <h3 class="section-subtitle">Atributos (Distribua 27 pontos)</h3>
-                    <p class="pontos-restantes">Pontos restantes: <span id="pontos-restantes">27</span></p>
-                    
+
+                    <!-- Número dinâmico de pontos -->
+                    <p class="pontos-restantes">
+                        Pontos restantes: <span id="pontos-restantes">27</span>
+                    </p>
+
+                    <!-- Grade de atributos -->
                     <div class="atributos-grid">
+
+                        <!-- Cada atributo tem seu próprio input -->
                         <div class="atributo-item">
                             <label class="form-label">Força</label>
                             <input type="number" class="form-input atributo-input" id="attr-forca" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                         <div class="atributo-item">
                             <label class="form-label">Destreza</label>
                             <input type="number" class="form-input atributo-input" id="attr-destreza" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                         <div class="atributo-item">
                             <label class="form-label">Constituição</label>
                             <input type="number" class="form-input atributo-input" id="attr-constituicao" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                         <div class="atributo-item">
                             <label class="form-label">Inteligência</label>
                             <input type="number" class="form-input atributo-input" id="attr-inteligencia" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                         <div class="atributo-item">
                             <label class="form-label">Sabedoria</label>
                             <input type="number" class="form-input atributo-input" id="attr-sabedoria" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                         <div class="atributo-item">
                             <label class="form-label">Carisma</label>
                             <input type="number" class="form-input atributo-input" id="attr-carisma" 
                                    min="1" max="18" value="8" onchange="calcularPontos()">
                         </div>
+
                     </div>
                 </div>
 
+                <!-- Botões do modal -->
                 <div class="modal-actions">
                     <button type="button" class="btn-modal btn-cancel" onclick="fecharModal('modal-personagem')">
                         Cancelar
                     </button>
+
                     <button type="submit" class="btn-modal btn-submit">
                         Criar Personagem
                     </button>
                 </div>
+
             </form>
         </div>
     </div>
 
-    <!-- MODAL LIVRO DE REGRAS -->
+
+
+    <!-- ==================================================
+         MODAL: LIVRO DE REGRAS
+         ================================================== -->
     <div class="modal" id="modal-livro">
         <div class="modal-content modal-large">
+
             <h2 class="modal-header">📖 Livro de Regras - Jogos de Purga</h2>
-            
+
+            <!-- Conteúdo das regras -->
             <div class="regras-content">
+
                 <h3 class="regras-titulo">⚔️ Regras Básicas</h3>
                 <p class="regras-texto">
                     • <strong>Testes de Habilidade:</strong> Role 1d20 + modificador de atributo<br>
@@ -237,11 +311,14 @@
                     11-12 = +1 | 13-14 = +2 | 15-16 = +3 | 17-18 = +4
                 </p>
 
+                <!-- Seção do Discord -->
                 <div class="discord-section">
                     <h3 class="regras-titulo">💬 Junte-se à Comunidade</h3>
                     <p class="regras-texto">
                         Entre no nosso servidor do Discord para encontrar grupos, tirar dúvidas e participar de eventos!
                     </p>
+
+                    <!-- Link externo -->
                     <a href="https://discord.gg/seuservidor" target="_blank" class="btn-discord">
                         <span class="discord-icon">💬</span>
                         Entrar no Discord
@@ -249,6 +326,7 @@
                 </div>
             </div>
 
+            <!-- Botão inferior -->
             <div class="modal-actions">
                 <button type="button" class="btn-modal btn-submit" onclick="fecharModal('modal-livro')">
                     Entendido
@@ -257,6 +335,10 @@
         </div>
     </div>
 
+
+
+    <!-- ================= SCRIPT PRINCIPAL ================= -->
     <script src="/static/js/player.js"></script>
+
 </body>
 </html>

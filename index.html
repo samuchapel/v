@@ -1,53 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Define a codificação de caracteres -->
     <meta charset="UTF-8">
+
+    <!-- Garante responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título exibido na aba do navegador -->
     <title>Jogos Vorazes</title>
+
+    <!-- Importa o arquivo CSS principal -->
     <link rel="stylesheet" href="/static/styles/Index.css">
+
+    <!-- Favicon do site -->
     <link rel="icon" type="image/png" href="static/img/1logo.png">
 </head>
-<body>
-<header>
 
+<body>
+
+<header>
+    <!-- Logo do site (imagem + texto) -->
     <a href="index.html" class="logo">
         <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
         <span class="logo-text">jogos Vorazes</span>
     </a>
 
+    <!-- Navegação principal -->
     <nav>
+        <!-- Botões que redirecionam para as páginas principais -->
         <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
         <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
         <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
     </nav>
 </header>
-    <main class="container">
-        <div class="content-text">
-            <div class="titulo">Bem-vindo aos Jogos</div>
-            <h1 class="main-text">Explore o abismo dos jogos</h1>
-            <p class="descricao">
-                Vasculhe os distritos, conheça o arsenal dos tributos e explore as criaturas soberanas da arena. 
-                E lembre-se "quebre sua perna".
-            </p>
-            <div class="buttons-group">
-                <button class="btn-action" onclick="window.location.href='/tamplates/mestrelg.html'">Mestre</button>
-                <button class="btn-action" onclick="window.location.href='/tamplates/playerlg.html'">Jogador</button>
-            </div>
+
+<main class="container">
+
+    <!-- Conteúdo textual principal -->
+    <div class="content-text">
+
+        <!-- Título estilizado -->
+        <div class="titulo">Bem-vindo aos Jogos</div>
+
+        <!-- Cabeçalho principal da página -->
+        <h1 class="main-text">Explore o abismo dos jogos</h1>
+
+        <!-- Pequena descrição inicial -->
+        <p class="descricao">
+            Vasculhe os distritos, conheça o arsenal dos tributos e explore as criaturas soberanas da arena. 
+            E lembre-se "quebre sua perna".
+        </p>
+
+        <!-- Botões de escolha de tipo de login -->
+        <div class="buttons-group">
+            <button class="btn-action" onclick="window.location.href='/tamplates/mestrelg.html'">Mestre</button>
+            <button class="btn-action" onclick="window.location.href='/tamplates/playerlg.html'">Jogador</button>
         </div>
+    </div>
 
-        <div class="image-container">
-            <div class="imagem-ilustrativa">
-                <img src="static/img/index/imagem ilustrativa index2.jpg" alt="Imagem Jogos Vorazes">
-                <span></span>
-            </div>
+    <!-- Área da imagem ilustrativa -->
+    <div class="image-container">
+        <div class="imagem-ilustrativa">
+            <img src="static/img/index/imagem ilustrativa index2.jpg" alt="Imagem Jogos Vorazes">
+            <!-- Elemento decorativo (provavelmente efeito no CSS) -->
+            <span></span>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <p></p>
-        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
-    </footer>
+<footer>
+    <!-- Espaço vazio, caso futuramente queira adicionar algo -->
+    <p></p>
 
-    <script src="/static/js/Index.js"></script>
+    <!-- Créditos -->
+    <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+</footer>
+
+<!-- Arquivo JS responsável por animações e interações -->
+<script src="/static/js/Index.js"></script>
+
 </body>
 </html>
