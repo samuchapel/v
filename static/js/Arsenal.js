@@ -1,83 +1,82 @@
 // ======================================================
-// ANIMAÇÃO DE ENTRADA AO CARREGAR A PÁGINA
+// MAPA DE IMAGENS DO ARSENAL (Caminhos Absolutos)
+// As chaves devem ser EXATAMENTE iguais aos nomes na tabela
 // ======================================================
-window.addEventListener("load", () => {
-    const hero = document.getElementById("heroContainer");
-    const main = document.getElementById("mainContainer");
+const imageMap = {
+    // Simples
+    "Faca de Combate": "/static/img/arsenal/simples/faca_combate.png",
+    "Porrete Leve": "/static/img/arsenal/simples/porrete_leve.png",
+    "Adaga Afiada": "/static/img/arsenal/simples/adaga_afiada.png",
+    "Bastão de Madeira": "/static/img/arsenal/simples/bastao_madeira.png",
+    "Clava Pequena": "/static/img/arsenal/simples/clava_pequena.png",
+    "Foice Curta": "/static/img/arsenal/simples/foice_curta.png",
+    "Estilingue Reforçado": "/static/img/arsenal/simples/estilingue_reforcado.png",
+    "Punhal Rústico": "/static/img/arsenal/simples/punhal_rustico.png",
+    "Martelinho de Forja": "/static/img/arsenal/simples/martelinho_forja.png",
+    "Chicote Leve": "/static/img/arsenal/simples/chicote_leve.png",
+    "Canivete Simples": "/static/img/arsenal/simples/canivete_simples.png",
+    "Taco de Madeira": "/static/img/arsenal/simples/taco_madeira.png",
+    "Corrente Curta": "/static/img/arsenal/simples/corrente_curta.png",
+    "Espeto de Ferro": "/static/img/arsenal/simples/espeto_ferro.png",
+    "Chave Inglesa Pequena": "/static/img/arsenal/simples/chave_inglesa_pequena.png",
+    "Peixeira": "/static/img/arsenal/simples/peixeira.png",
+    "Estaca de Madeira": "/static/img/arsenal/simples/estaca_madeira.png",
 
-    hero.classList.remove("fade-out");
-    main.classList.remove("fade-out");
+    // Tática
+    "Arco Composto": "/static/img/arsenal/tatica/arco_composto.png",
+    "Besta Compacta": "/static/img/arsenal/tatica/besta_compacta.png",
+    "Faca Tática Serrilhada": "/static/img/arsenal/tatica/faca_tatica_serrilhada.png",
+    "Lança Modular": "/static/img/arsenal/tatica/lanca_modular.png",
+    "Arpão Urbano": "/static/img/arsenal/tatica/arpao_urbano.png",
+    "Punhal Militar": "/static/img/arsenal/tatica/punhal_militar.png",
+    "Dardo Equilibrado": "/static/img/arsenal/tatica/dardo_equilibrado.png",
+    "Tonfa Tática": "/static/img/arsenal/tatica/tonfa_tatica.png",
+    "Bastão Retrátil": "/static/img/arsenal/tatica/bastao_retratil.png",
+    "Garra de Escalada": "/static/img/arsenal/tatica/garra_escalada.png",
+    "Arremessador de Facas": "/static/img/arsenal/tatica/arremessador_facas.png",
+    "Shuriken Metálico": "/static/img/arsenal/tatica/shuriken_metalico.png",
+    "Boleadeira": "/static/img/arsenal/tatica/boleadeira.png",
+    "Lança de Fibra": "/static/img/arsenal/tatica/lanca_fibra.png",
+    "Chicote Tático de Aço": "/static/img/arsenal/tatica/chicote_tatico_aco.png",
 
-    setTimeout(() => hero.classList.add("fade-in"), 100);
-    setTimeout(() => main.classList.add("fade-in"), 300);
+    // Pesada
+    "Martelo de Guerra": "/static/img/arsenal/pesada/martelo_guerra.png",
+    "Lança Pesada": "/static/img/arsenal/pesada/lanca_pesada.png",
+    "Tridente Reforçado": "/static/img/arsenal/pesada/tridente_reforcado.png",
+    "Machado Duplo": "/static/img/arsenal/pesada/machado_duplo.png",
+    "Marreta Militar": "/static/img/arsenal/pesada/marreta_militar.png",
+    "Clava de Ferro": "/static/img/arsenal/pesada/clava_ferro.png",
+    "Espadão Antigo": "/static/img/arsenal/pesada/espadao_antigo.png",
+    "Foice de Batalha": "/static/img/arsenal/pesada/foice_batalha.png",
+    "Machadão Tribal": "/static/img/arsenal/pesada/machadao_tribal.png",
+    "Punho de Impacto": "/static/img/arsenal/pesada/punho_impacto.png",
 
-    // 👉 INICIAR DIRETAMENTE COM OS ITENS GERAIS
-    mudarArsenalStart('geral');
-});
-
-// ======================================================
-// POPUP
-// ======================================================
-function abrirPopup(nome, descricao) {
-    document.getElementById("popupTitulo").innerText = nome;
-    document.getElementById("popupDescricao").innerText = descricao;
-
-    // imagem opcional, não quebra se não existir
-    document.getElementById("popupImg").src = "img/armas/" + nome + ".png";
-
-    document.getElementById("popup").classList.remove("hidden");
-}
-
-document.getElementById("popupClose").addEventListener("click", () => {
-    document.getElementById("popup").classList.add("hidden");
-});
-
-window.addEventListener("click", (e) => {
-    const popup = document.getElementById("popup");
-    if (e.target === popup) popup.classList.add("hidden");
-});
-
-// ======================================================
-// FUNÇÃO NORMAL DE TROCAR CATEGORIA PELO CLIQUE
-// ======================================================
-function mudarArsenal(tipo) {
-    const hero = document.getElementById("heroContainer");
-    const main = document.getElementById("mainContainer");
-
-    // remover botão ativo antigo
-    document.querySelectorAll('.btn-area button').forEach(btn =>
-        btn.classList.remove('active')
-    );
-
-    // ✔ impedir erro quando não há event.target
-    if (event && event.target) {
-        event.target.classList.add('active');
-    }
-
-    hero.classList.remove("fade-in");
-    main.classList.remove("fade-in");
-
-    hero.classList.add("fade-out");
-    main.classList.add("fade-out");
-
-    setTimeout(() => {
-        atualizarConteudo(tipo);
-
-        hero.classList.remove("fade-out");
-        main.classList.remove("fade-out");
-
-        setTimeout(() => hero.classList.add("fade-in"), 50);
-        setTimeout(() => main.classList.add("fade-in"), 150);
-    }, 500);
-}
-
-// ======================================================
-// FUNÇÃO ESPECIAL PARA O CARREGAMENTO INICIAL
-// (ativa o botão Itens Gerais sem clique humano)
-// ======================================================
+    // Geral (Itens)
+    "Kit Médico": "/static/img/arsenal/geral/kit_medico.png",
+    "Cantil Reforçado": "/static/img/arsenal/geral/cantil_reforcado.png",
+    "Cordas Resistentes": "/static/img/arsenal/geral/cordas_resistentes.png",
+    "Rações Secas": "/static/img/arsenal/geral/racoes_secas.png",
+    "Kit de Ferramentas": "/static/img/arsenal/geral/kit_ferramentas.png",
+    "Tocha Longa": "/static/img/arsenal/geral/tocha_longa.png",
+    "Mapa Detalhado": "/static/img/arsenal/geral/mapa_detalhado.png",
+    "Kit de Costura": "/static/img/arsenal/geral/kit_costura.png",
+    "Pederneira": "/static/img/arsenal/geral/pederneira.png",
+    "Frasco de Óleo": "/static/img/arsenal/geral/frasco_oleo.png",
+    "Mochila Compacta": "/static/img/arsenal/geral/mochila_compacta.png",
+    "Capa Impermeável": "/static/img/arsenal/geral/capa_impermeavel.png",
+    "Binóculo Médio": "/static/img/arsenal/geral/binoculo_medio.png",
+    "Lanterna Pequena": "/static/img/arsenal/geral/lanterna_pequena.png",
+    "Pá Dobrável": "/static/img/arsenal/geral/pa_dobravel.png",
+    "Máscara de Filtro": "/static/img/arsenal/geral/mascara_filtro.png",
+    "Kit de Pesca": "/static/img/arsenal/geral/kit_pesca.png",
+    "Caixa de Pregos": "/static/img/arsenal/geral/caixa_pregos.png",
+    "Martelo Pequeno": "/static/img/arsenal/geral/martelo_pequeno.png",
+    "Fita Adesiva Forte": "/static/img/arsenal/geral/fita_adesiva_forte.png"
+};
 
 // ======================================================
 // BANCO DE DADOS DO ARSENAL
+// (Copiado do seu código original)
 // ======================================================
 const arsenal = {
     simples: {
@@ -97,12 +96,9 @@ const arsenal = {
         ["Taco de Madeira", "Força", "1.3kg"],
         ["Corrente Curta", "Vigor", "0.7kg"],
         ["Espeto de Ferro", "Agilidade", "0.6kg"],
-        ["Ferro de Carvão", "Força", "1.4kg"],
         ["Chave Inglesa Pequena", "Força", "0.9kg"],
         ["Peixeira", "Agilidade", "0.5kg"],
         ["Estaca de Madeira", "Vigor", "0.4kg"],
-        ["Quebra-Cabeça Metálico", "Força", "1.0kg"],
-        ["Ripa Reforçada", "Vigor", "0.8kg"]
     ],
         descricoes: {
     "Faca de Combate":
@@ -230,16 +226,7 @@ const arsenal = {
         "🟡 Fraquezas:\n" +
         "🟡 Pode entortar.\n" +
         "🟡 Alcance mínimo.",
-
-    "Ferro de Carvão":
-        "Ferramenta de cozinha pesada, usada como arma improvisada.\n\n" +
-        "🟡 Dano: 1d8 contundente.\n" +
-        "🟡 Forte contra superfícies rígidas.\n" +
-        "🟡 Pode empurrar inimigos.\n\n" +
-        "🟡 Fraquezas:\n" +
-        "🟡 Extremamente lento.\n" +
-        "🟡 Cansa rapidamente o usuário.",
-
+        
     "Chave Inglesa Pequena":
         "Ferramenta metálica resistente.\n\n" +
         "🟡 Dano: 1d6 contundente.\n" +
@@ -266,24 +253,6 @@ const arsenal = {
         "🟡 Fraquezas:\n" +
         "🟡 Extremamente frágil.\n" +
         "🟡 Perde a ponta rápido.",
-
-    "Quebra-Cabeça Metálico":
-        "Peça metálica improvisada usada como soco metálico.\n\n" +
-        "🟡 Dano: 1d6 contundente.\n" +
-        "🟡 Fácil de usar em ataques rápidos.\n" +
-        "🟡 Pode causar atordoamento leve.\n\n" +
-        "🟡 Fraqueças:\n" +
-        "🟡 Exige combate corpo a corpo extremo.\n" +
-        "🟡 Ineficiente contra oponentes grandes.",
-
-    "Ripa Reforçada":
-        "Madeira reforçada com metal ou arames.\n\n" +
-        "🟡 Dano: 1d8 contundente.\n" +
-        "🟡 Resistência maior que um taco comum.\n" +
-        "🟡 Pode quebrar ossos mais facilmente.\n\n" +
-        "🟡 Fraquezas:\n" +
-        "🟡 Mais pesada que parece.\n" +
-        "🟡 Pode lascar e machucar o usuário."
 }
 
     },
@@ -679,12 +648,94 @@ descricoes: {
 };
 
 // ======================================================
+// FUNÇÕES
+// ======================================================
+
+// 🌟 CORRIGIDO: Usa o imageMap para buscar o caminho da imagem
+function abrirPopup(nome, descricao) {
+    document.getElementById("popupTitulo").innerText = nome;
+    document.getElementById("popupDescricao").innerText = descricao;
+
+    const imageUrl = imageMap[nome];
+    const popupImgElement = document.getElementById("popupImg");
+
+    // Define a imagem se o caminho existir no mapa, caso contrário, limpa
+    if (imageUrl) {
+        popupImgElement.src = imageUrl;
+    } else {
+        popupImgElement.src = "";
+    }
+
+    document.getElementById("popup").classList.remove("hidden");
+}
+
+document.getElementById("popupClose").addEventListener("click", () => {
+    document.getElementById("popup").classList.add("hidden");
+});
+
+window.addEventListener("click", (e) => {
+    const popup = document.getElementById("popup");
+    if (e.target === popup) popup.classList.add("hidden");
+});
+
+// ======================================================
+// FUNÇÃO DE TROCAR CATEGORIA PELO CLIQUE
+// ======================================================
+function mudarArsenal(tipo) {
+    const hero = document.getElementById("heroContainer");
+    const main = document.getElementById("mainContainer");
+
+    // Remover seleção antiga e adicionar no botão clicado
+    document.querySelectorAll('.btn-area button').forEach(btn =>
+        btn.classList.remove('active')
+    );
+
+    // ✔ impede erro quando não há event.target
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
+
+    hero.classList.remove("fade-in");
+    main.classList.remove("fade-in");
+
+    hero.classList.add("fade-out");
+    main.classList.add("fade-out");
+
+    setTimeout(() => {
+        atualizarConteudo(tipo);
+
+        hero.classList.remove("fade-out");
+        main.classList.remove("fade-out");
+
+        setTimeout(() => hero.classList.add("fade-in"), 50);
+        setTimeout(() => main.classList.add("fade-in"), 150);
+    }, 500);
+}
+
+// ======================================================
+// FUNÇÃO ESPECIAL PARA O CARREGAMENTO INICIAL
+// ======================================================
+function mudarArsenalStart(tipo) {
+    // 1. Ativa o botão correto visualmente (assumindo o texto do botão)
+    document.querySelectorAll('.btn-area button').forEach(btn => {
+        if (btn.innerText.toLowerCase().includes('gerais')) { // Assume que o botão "geral" contém "gerais"
+            btn.classList.add('active');
+        }
+    });
+
+    // 2. Chama a atualização de conteúdo
+    atualizarConteudo(tipo); 
+}
+
+// ======================================================
 // ATUALIZA A TABELA COM O TIPO ATUAL
 // ======================================================
 function atualizarConteudo(tipo) {
     const a = arsenal[tipo];
     const tabela = document.getElementById("tabelaInfo");
+    const tituloPrincipal = document.getElementById("tituloPrincipal");
 
+    tituloPrincipal.innerText = tipo.toUpperCase();
     tabela.innerHTML = "";
 
     a.tabela.forEach((linha, index) => {
@@ -707,3 +758,21 @@ function atualizarConteudo(tipo) {
         tabela.appendChild(tr);
     });
 }
+
+
+// ======================================================
+// ANIMAÇÃO DE ENTRADA AO CARREGAR A PÁGINA
+// ======================================================
+window.addEventListener("load", () => {
+    const hero = document.getElementById("heroContainer");
+    const main = document.getElementById("mainContainer");
+
+    hero.classList.remove("fade-out");
+    main.classList.remove("fade-out");
+
+    setTimeout(() => hero.classList.add("fade-in"), 100);
+    setTimeout(() => main.classList.add("fade-in"), 300);
+
+    // 👉 INICIAR DIRETAMENTE COM OS ITENS GERAIS
+    mudarArsenalStart('geral');
+});
