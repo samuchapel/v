@@ -44,7 +44,7 @@
         "Mantícora": "../static/img/monstruario/Bestantes/manticora.png",
         "Quimera": "../static/img/monstruario/Bestantes/quimera.png",
         "Ciclope": "../static/img/monstruario/Bestantes/ciclope.png",
-        "Basilisco": "../static/img/monstruario/Bestantes/basilisco.png",
+        "Basilisco": "..static/img/monstruario/Bestantes/Basilisco.png",
         "Grifo": "../static/img/monstruario/Bestantes/grifo.png",
         "Minotauro": "../static/img/monstruario/Bestantes/minotauro.png",
         "Harpia": "../static/img/monstruario/Bestantes/harpia.png",
