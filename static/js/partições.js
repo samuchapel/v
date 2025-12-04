@@ -10,7 +10,7 @@ const dados = {
     d1: {
         titulo: "Distrito 1",
         subtitulo: "Conhecido por artigos de luxo e por sua inteligência",
-        descricao: "Um centro de academias, bibliotecas vivas e laboratórios de última geração. Seus habitantes são reconhecidos pela mente afiada, pensamento estratégico e capacidade de resolver problemas complexos sob pressão. Nos jogos, destacam-se por vencer com inteligência: calculam cada passo, usam lógica para manipular o terreno, criam planos rápidos e exploram a fraqueza dos oponentes.",
+        descricao: "Um centro de academias, bibliotecas vivas e laboratórios de última geração, o Distrito 1 transforma conhecimento em poder real. Seus habitantes crescem cercados por observatórios, arquivos infinitos e centros de estudo que exigem raciocínio rápido, visão além do óbvio e capacidade de resolver problemas complexos sob pressão. Aqui, o saber é tratado como uma arma tão letal quanto qualquer lâmina. Nos Jogos, seus tributos entram na arena como estrategistas natos — jogadores que enxergam várias jogadas à frente antes mesmo de o combate começar. Não desperdiçam energia: cada passo, cada palavra e cada armadilha é calculada com precisão inquietante.",
         listaTitulo: "LISTA SOBRE OS VENCEDORES DOS JOGOS",
         tabela: [
             ["Ano", "Vencedor"],
@@ -22,7 +22,7 @@ const dados = {
     d2: {
         titulo: "Distrito 2",
         subtitulo: "Armas, tecnologia e energia",
-        descricao: "Tecnologia e habilidade formam o núcleo deste distrito. Seus competidores combinam preparo físico com domínio de armas modernas, equipamentos e engenharia. Lutam como se cada batalha fosse um teste de performance: precisão, velocidade e inovação definem suas vitórias.",
+        descricao: "Tecnologia e habilidade formam o núcleo deste distrito. Suas cidades são construídas em desníveis, rampas, plataformas e corredores estreitos que obrigam cada habitante a desenvolver equilíbrio, reflexos rápidos e uma agilidade quase instintiva. Viver ali é conviver com movimento constante — tudo flui, tudo exige reação imediata. Os tributos do Distrito 2 combinam preparo físico com o domínio de armas modernas, dispositivos táticos e engenhos de engenharia que conhecem como a palma da mão. Lutam como se cada confronto fosse um teste de performance: precisão mecânica, velocidade agressiva e inovação constante.",
         listaTitulo: "LISTA SOBRE OS VENCEDORES DOS JOGOS",
         tabela: [
             ["Ano", "Vencedor"],
@@ -34,7 +34,7 @@ const dados = {
     panem: {
         titulo: "Panem",
         subtitulo: "Capital e distritos unificados",
-        descricao: "Panem é o coração brilhante — e cruel — de toda a nação. Oficialmente, é apresentada como o símbolo máximo de ordem, progresso e unidade. Mas para as Partições, ela é conhecida por outro nome: Medo. É da Capital que surgem as leis, as armas, os tributos e a vigilância constante que mantêm cada distrito sob controle.",
+        descricao: "Panem é o coração brilhante — e cruel — de toda a nação. Oficialmente, apresenta-se como o ápice da ordem e do progresso, uma vitrine impecável da unidade que sustenta o país. Mas quem vive sob suas sombras a conhece por outro nome: Medo. Cada corredor da Capital parece observar. Tudo é grande demais, polido demais, calmo demais — aquela calma artificial que existe apenas quando todos sabem que estão sendo vistos. O poder ali não precisa ser barulhento. Ele se espalha pela pele como um frio que não vem do vento, mas da certeza de que não há para onde correr.",
         listaTitulo: "LISTA SOBRE OS IDEALIZADORES DOS JOGOS",
         tabela: [
             ["Nome", "Função"],
@@ -46,7 +46,7 @@ const dados = {
     d3: {
         titulo: "Distrito 3",
         subtitulo: "industriabelica e militar",
-        descricao: "Forjado pela resistência extrema, disciplina rígida e treinamento militar, a Partição 3 é a personificação da frieza. Seus habitantes tornam-se especialistas em táticas de guerra, sobrevivência prolongada e coordenação em grupo.",
+        descricao: "Forjado pela resistência extrema, pela disciplina rígida e por um treinamento quase militar, o Distrito 3 é a personificação da frieza estratégica. Seus habitantes crescem em ambientes inóspitos, cercados por máquinas que podem falhar, estruturas imprevisíveis e rotinas onde um erro mínimo pode custar uma vida. Essa convivência constante com o risco molda pessoas que não se intimidam — apenas se adaptam. Aqui, todos aprendem cedo a suportar mais do que deveriam: dor, fome, longos períodos de silêncio, e noites que parecem intermináveis. A sobrevivência não é uma prova, é o cotidiano. Por isso, seus tributos carregam uma calma perturbadora, quase antinatural.",
         listaTitulo: "LISTA SOBRE OS VENCEDORES DOS JOGOS",
         tabela: [
             ["Ano", "Vencedor"],
@@ -58,7 +58,7 @@ const dados = {
     d4: {
         titulo: "Distrito 4",
         subtitulo: "o trabalho sujo",
-        descricao: "A Partição 4 é costeira e suas gentes dominam o mar. Competidores daqui vencem com brutalidade, ferocidade e instinto predatório — além de habilidades aquáticas superiores.",
+        descricao: "O Distrito 4 vive entre marés violentas, tempestades repentinas e criaturas que só podem ser enfrentadas com coragem e músculos firmes. Desde jovens, seus habitantes aprendem a lidar com o esforço físico bruto e com a violência da natureza.  Seus tributos são ferozes, diretos e intensos. Lutam com o corpo todo, com o instinto, com a fúria que vem de quem passa a vida dominando forças que não perdoam hesitação. Eles não apenas atacam — avançam.",
         listaTitulo: "LISTA SOBRE OS VENCEDORES DOS JOGOS",
         tabela: [
             ["Ano", "Vencedor"],
