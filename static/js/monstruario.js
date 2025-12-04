@@ -15,6 +15,47 @@
         }, 300);
     });
 
+    // 🌟 CÓDIGO CORRIGIDO: MAPA DE IMAGENS COM CAMINHOS REAIS 
+    // Certifique-se de que a estrutura de pastas no seu projeto é:
+    // .../static/img/monstruario/Animais/
+    // .../static/img/monstruario/Bestantes/
+    const imageMap = {
+        // Animais
+        "Lobo Selvagem": "../static/img/monstruario/Animais/lobo.png",
+        "Urso Pardo": "../static/img/monstruario/Animais/urso.png",
+        "Cobra Venenosa": "../static/img/monstruario/Animais/cobra.png",
+        "Javali Feroz": "../static/img/monstruario/Animais/javali.png",
+        "Águia Gigante": "../static/img/monstruario/Animais/aguia.png",
+        "Pantera Negra": "../static/img/monstruario/Animais/pantera.png",
+        "Crocodilo": "../static/img/monstruario/Animais/crocodilo.png",
+        "Escorpião Gigante": "../static/img/monstruario/Animais/escorpiao.png",
+        "Aranha Caçadora": "../static/img/monstruario/Animais/aranha.png",
+        "Hiena Matilheira": "../static/img/monstruario/Animais/hiena.png",
+        "Búfalo Bravo": "../static/img/monstruario/Animais/bufalo.png",
+        "Leão Selvagem": "../static/img/monstruario/Animais/leao.png",
+        "Tigre Caçador": "../static/img/monstruario/Animais/tigre.png",
+        "Lobo Branco": "../static/img/monstruario/Animais/lobo branco.png",
+        "Raposa Astuta": "../static/img/monstruario/Animais/raposa.png",
+        
+        // Bestantes
+        "Troll de Pedra": "../static/img/monstruario/Bestantes/Pedra.png",
+        "Górgona": "../static/img/monstruario/Bestantes/gorgona.png",
+        "Hidra": "../static/img/monstruario/Bestantes/hidra.png",
+        "Mantícora": "../static/img/monstruario/Bestantes/manticora.png",
+        "Quimera": "../static/img/monstruario/Bestantes/quimera.png",
+        "Ciclope": "../static/img/monstruario/Bestantes/ciclope.png",
+        "Basilisco": "../static/img/monstruario/Bestantes/basilisco.png",
+        "Grifo": "../static/img/monstruario/Bestantes/grifo.png",
+        "Minotauro": "../static/img/monstruario/Bestantes/minotauro.png",
+        "Harpia": "../static/img/monstruario/Bestantes/harpia.png",
+        "Esfinge": "../static/img/monstruario/Bestantes/esfinge.png",
+        "Cerberus": "../static/img/monstruario/Bestantes/cerberus.png",
+        "Fênix": "../static/img/monstruario/Bestantes/fenix.png",
+        "Banshee": "../static/img/monstruario/Bestantes/banshee.png",
+        "Wendigo": "../static/img/monstruario/Bestantes/wendigo.png"
+    };
+    // FIM DO CÓDIGO CORRIGIDO: MAPA DE IMAGENS
+
     // DADOS DO MONSTRUÁRIO
     const monstruario = {
         animais: {
@@ -141,7 +182,7 @@
         "🔻 Ataque: 2d8 cortante.\n" +
         "🔻 Rugido: Ameaça que causa medo (CD 13).\n" +
         "🔻 Caça em grupo de fêmeas.\n\n" +
-        "🔻 Fraqueças:\n" +
+        "🔻 Fraquezas:\n" +
         "🔻 Presumido: pode se expor demais.\n" +
         "🔻 Sensível a emboscadas.",
 
@@ -463,12 +504,23 @@
         const descricao = dados.descricoes[nomeCriatura];
         
         if (!descricao) return;
-
+        
+        // OBTENDO A URL DA IMAGEM
+        const imageUrl = imageMap[nomeCriatura];
+        
         // 1. Preenche o Modal
         modalNome.innerText = nomeCriatura;
         modalDesc.innerText = descricao;
-        modalImgBox.innerHTML = `[Imagem de ${nomeCriatura}]`; // Placeholder para imagem
+        
+        // 2. INSERE A TAG <img> (SEM A CLASSE DESNECESSÁRIA)
+        if (imageUrl) {
+            // A classe 'modal-image' foi removida, pois o CSS já estiliza corretamente: .modal-image-box img
+            modalImgBox.innerHTML = `<img src="${imageUrl}" alt="${nomeCriatura}">`;
+        } else {
+             // Se não houver imagem mapeada, insere um placeholder ou deixa vazio
+            modalImgBox.innerHTML = `<p>Imagem não disponível para ${nomeCriatura}</p>`; 
+        }
 
-        // 2. Exibe o Modal
+        // 3. Exibe o Modal
         modal.style.display = "flex";
     }
