@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Serviço - Jogos Vorazes</title>
+    <link href="/static/styles/termos.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <a href="/index.html" class="logo">
+        <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">jogos Vorazes</span>
+    </a>
+
+    <nav>
+        <a href="/tamplates/partições.html" class="btn-header">Distritos</a>
+        <a href="/tamplates/Arsenal.html" class="btn-header">Arsenal</a>
+        <a href="/tamplates/monstruario.html" class="btn-header">Monstruário</a>
+    </nav>
+</header>
+
+<main>
+    <div class="hero-section">
+        <h1>Termos de Serviço</h1>
+        <p class="subtitle">Conheça as diretrizes do projeto</p>
+        
+        <div class="warning-banner">
+            <p>⚡ Projeto de fãs desenvolvido para o servidor Discord <span class="discord-badge">Jogos Insanys</span></p>
+        </div>
+    </div>
+
+    <div class="terms-grid">
+        <div class="term-card" onclick="openModal('projeto')">
+            <div class="term-icon">📋</div>
+            <div class="term-title">Sobre o Projeto</div>
+            <div class="term-preview">Criado por Chapeleiro para a comunidade Jogos Insanys</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('conteudo')">
+            <div class="term-icon">📄</div>
+            <div class="term-title">Conteúdo em Evolução</div>
+            <div class="term-preview">Informações podem ser atualizadas a qualquer momento</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('direitos')">
+            <div class="term-icon">©️</div>
+            <div class="term-title">Direitos Autorais</div>
+            <div class="term-preview">Respeito à propriedade intelectual de Jogos Vorazes</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('uso')">
+            <div class="term-icon">✔</div>
+            <div class="term-title">Regras de Uso</div>
+            <div class="term-preview">Como utilizar o site de forma adequada</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('discord')">
+            <div class="term-icon">💬</div>
+            <div class="term-title">Comunidade Discord</div>
+            <div class="term-preview">Faça parte do servidor Jogos Insanys</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('atualizacoes')">
+            <div class="term-icon">⚙️</div>
+            <div class="term-title">Modificações</div>
+            <div class="term-preview">O site está em constante desenvolvimento</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('classificacao')">
+            <div class="term-icon">🔞</div>
+            <div class="term-title">Classificação</div>
+            <div class="term-preview">Informações sobre conteúdo sensível</div>
+        </div>
+
+        <div class="term-card" onclick="openModal('contato')">
+            <div class="term-icon">📧</div>
+            <div class="term-title">Contato</div>
+            <div class="term-preview">Como entrar em contato com o desenvolvedor</div>
+        </div>
+    </div>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Projeto baseado em Jogos Vorazes - Desenvolvido por Chapeleiro</p>
+    <p class="copy">Contribuição ao servidor Discord <strong>"Jogos Insanys"</strong> | Projeto não oficial de fãs</p>
+</footer>
+
+
+</body>
+</html>
+
+<script src="/static/js/termos.js"></script>
+</body>
+</html>
