@@ -150,28 +150,59 @@ nav {
     margin-bottom: 10px;
 }
 
-.btn-area {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+ .btn-area {
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
 
-.btn-area button {
-    padding: 15px 35px;
-    background: linear-gradient(135deg, #444 0%, #555 100%);
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
+            .btn-area button {
+                padding: 15px 35px;
+                background: linear-gradient(135deg, #444 0%, #555 100%);
+                color: white;
+                border: 2px solid transparent;
+                border-radius: 25px;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-area button::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(212, 175, 55, 0.3);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s ease, height 0.6s ease;
+            }
+
+            .btn-area button:hover::after {
+                width: 300px;
+                height: 300px;
+            }
+
+            .btn-area button:hover {
+                background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+                border-color: #fff;
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            }
+
+            .btn-area button.active {
+                background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+                border-color: #fff;
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+            }
 
 /* =============================== MAIN (Tabela) ================================ */
 

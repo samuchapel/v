@@ -1,177 +1,329 @@
-/* --------------------------------------------------
-   RESET BÁSICO
--------------------------------------------------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; font-family: 'Poppins', sans-serif; background: #0d0d0d; color: #fff; }
+/* =========================
+  RESET E CONFIGURAÇÕES GERAIS
+ ========================= */
+/* Remove margens e espaçamentos padrão e ajuda no controle do design */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* --------------------------------------------------
-   CABEÇALHO / HEADER
--------------------------------------------------- */
-header {
-    width: 100%;
-    background: #111;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #222;
+/* Garante que o body ocupe toda a tela */
+html,body { height:100%; }
+
+/* Estilos gerais do body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#2d2d2d 100%);
+  color:#fff;
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  position:relative; overflow-x:hidden;
 }
 
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Efeito visual brilhante no fundo */
+body::before{
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212,175,55,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(212,175,55,0.05) 0%, transparent 40%);
+  animation: pulseBackground 10s ease-in-out infinite;
+}
+/* Respiração suave do fundo */
+@keyframes pulseBackground{
+  0%,100%{opacity:1}
+  50%{opacity:0.6}
 }
 
-header .logo img {
-    height: 50px;
+/* HEADER */
+    header {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 245, 0.98) 100%);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #d4af37;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo img {
+      height: 55px;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .logo-text {
+      font-size: 30px;
+      font-weight: bold;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-header {
+      background: linear-gradient(135deg, #555 0%, #6b6b6b 100%);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-header:hover::before {
+      left: 100%;
+    }
+
+    .btn-header:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-header.active {
+      background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    }
+/* =========================
+  HERO (TELA INICIAL)
+ ========================= */
+.hero{
+  text-align:center; margin-top:48px; z-index:1; padding:0 20px;
 }
 
-header .logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
+/* Título grande brilhante */
+.hero h1{
+  font-size:56px; margin-bottom:8px;
+  background:linear-gradient(135deg,#fff,#d4af37 50%,#f0c654 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  letter-spacing:2px;
 }
 
-/* --------------------------------------------------
-   TITULOS / SEÇÕES
--------------------------------------------------- */
-h1, h2, h3 {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #f0c654;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+/* Subtítulo */
+.hero h2{
+  font-weight:300; color:#c4c4c4; font-size:18px;
+  max-width:920px; margin:0 auto; line-height:1.6;
 }
 
-/* --------------------------------------------------
-   CARDS DAS PARTIÇÕES / DISTRITOS
--------------------------------------------------- */
-.card-distrito {
-    background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
-    padding: 25px;
-    border-radius: 20px;
-    margin: 25px 0;
-    border: 1px solid #333;
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    transition: transform .3s ease;
+ .btn-area {
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .btn-area button {
+                padding: 15px 35px;
+                background: linear-gradient(135deg, #444 0%, #555 100%);
+                color: white;
+                border: 2px solid transparent;
+                border-radius: 25px;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-area button::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(212, 175, 55, 0.3);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s ease, height 0.6s ease;
+            }
+
+            .btn-area button:hover::after {
+                width: 300px;
+                height: 300px;
+            }
+
+            .btn-area button:hover {
+                background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+                border-color: #fff;
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            }
+
+            .btn-area button.active {
+                background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+                border-color: #fff;
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+            }
+/* Fim da MODIFICAÇÃO do .btn-distrito */
+
+
+/* =========================
+  MAIN (CONTEÚDO DOS DISTRITOS)
+ ========================= */
+main{
+  display:flex; gap:40px;
+  justify-content:center; align-items:flex-start;
+  padding:48px 60px 80px;
+  max-width:1400px; margin:40px auto 0;
+  z-index:1;
 }
 
-.card-distrito:hover {
-    transform: scale(1.02);
+/* Lado da imagem */
+.left-box{ flex:0 0 420px; text-align:center; }
+
+/* Card da imagem com efeitos */
+.img-box{
+  height:320px; border-radius:18px;
+  border:3px solid rgba(212,175,55,0.35);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 40px rgba(0,0,0,0.6);
+  overflow:hidden; background-size:cover; background-position:center;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.img-box:hover{
+  transform:translateY(-6px) scale(1.02);
+  border-color:#d4af37;
+  box-shadow:0 18px 54px rgba(212,175,55,0.28);
 }
 
-/* --------------------------------------------------
-   BOTÕES DOS DISTRITOS — ESTILO DO MONSTRUÁRIO
--------------------------------------------------- */
-.btn-distrito {
-    padding: 15px 35px;
-    background: linear-gradient(135deg, #444 0%, #555 100%);
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
+/* Título da lista */
+.lista{
+  margin-top:20px; color:#d4af37;
+  font-weight:800; letter-spacing:1.6px;
+  text-transform:uppercase; font-size:13px;
 }
 
-/* efeito do círculo dourado */
-.btn-distrito::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(212, 175, 55, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+/* Tabela com vencedores / organizadores */
+#tabelaInfo{
+  margin-top:18px; width:100%; border-collapse:collapse;
+  border-radius:12px; overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,0.4);
+}
+#tabelaInfo th{
+  padding:12px;
+  background:linear-gradient(135deg,#d4af37,#f0c654);
+  color:#000; font-weight:800; font-size:13px;
+  text-transform:uppercase; letter-spacing:1px;
+}
+#tabelaInfo td{
+  padding:12px;
+  background:rgba(255,255,255,0.03);
+  color:#fff; border-bottom:1px solid rgba(255,255,255,0.03);
+  cursor:pointer; text-align:left;
+}
+#tabelaInfo tr:hover td{
+  background:rgba(212,175,55,0.12); color:#d4af37;
 }
 
-.btn-distrito:hover::after {
-    width: 300px;
-    height: 300px;
+/* Lado do texto */
+.info{ flex:1; max-width:720px; }
+
+/* Título do distrito */
+.titulo-principal{
+  font-size:48px; margin-bottom:18px;
+  background:linear-gradient(135deg,#fff,#d4af37 50%,#f0c654);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  font-weight:800; letter-spacing:2px;
 }
 
-.btn-distrito:hover {
-    background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
-    border-color: #fff;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+/* Caixa com descrição */
+#descricao{
+  font-size:17px; color:#d4d4d4; line-height:1.8;
+  text-align:justify; padding:26px;
+  background:rgba(255,255,255,0.03);
+  border-left:5px solid #d4af37; border-radius:10px;
+  box-shadow:0 6px 28px rgba(0,0,0,0.28);
 }
 
-.btn-distrito.active {
-    background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
-    border-color: #fff;
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+/* =========================
+  RODAPÉ
+ ========================= */
+footer{
+  margin-top:48px; padding:22px 16px;
+  text-align:center; color:#c4c4c4;
+  border-top:3px solid #d4af37;
 }
 
-/* --------------------------------------------------
-   BOTÕES GERAIS (CASO VOCÊ USE)
--------------------------------------------------- */
-button, .btn {
-    padding: 12px 30px;
-    border-radius: 20px;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-    transition: .3s;
+/* =========================
+  MODAL (pop-up de detalhes)
+ ========================= */
+.modal{
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.85);
+  z-index:1200; align-items:center; justify-content:center; padding:30px;
+}
+.modal.show{ display:flex; }
+
+.modal-content{
+  width:100%; max-width:760px;
+background:linear-gradient(135deg,#1a1a1a,#2a2a2a);
+border-radius:14px; padding:32px;
+border:3px solid #d4af37;
+box-shadow:0 18px 60px rgba(0,0,0,0.6);
 }
 
-button:hover, .btn:hover {
-    background: #333;
+.modal h2{ color:#d4af37; margin-bottom:12px; font-size:26px; }
+.modal p{ color:#d4d4d4; line-height:1.8; font-size:16px; }
+
+.close{
+position:absolute; right:24px; top:18px;
+font-size:28px; color:#d4af37;
+cursor:pointer; font-weight:800;
 }
+.close:hover{ color:#f0c654; transform:rotate(90deg); }
 
-/* --------------------------------------------------
-   MONSTRUÁRIO — ESTILO PADRÃO (mantido intacto)
--------------------------------------------------- */
-.monstro-card {
-    background: linear-gradient(135deg, #1b1b1b 0%, #121212 100%);
-    padding: 25px;
-    border-radius: 20px;
-    margin: 20px 0;
-    border: 1px solid #333;
-    box-shadow: 0 0 25px rgba(255,215,0,0.15);
-    transition: transform .3s ease, box-shadow .3s ease;
+/* =========================
+  RESPONSIVIDADE
+ ========================= */
+@media (max-width:1024px){
+/* Empilha o conteúdo no mobile */
+main{ flex-direction:column; align-items:center; padding:36px; gap:28px; }
+.left-box{ width:100%; max-width:520px; }
+.titulo-principal{ font-size:36px; text-align:center; }
 }
-
-.monstro-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(255,215,0,0.25);
-}
-
-.monstro-card img {
-    width: 100%;
-    border-radius: 15px;
-    margin-bottom: 15px;
-}
-
-/* --------------------------------------------------
-   GRID
--------------------------------------------------- */
-.grid {
-    display: grid;
-    gap: 25px;
-}
-
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-/* --------------------------------------------------
-   RESPONSIVIDADE
--------------------------------------------------- */
-@media (max-width: 900px) {
-    .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 600px) {
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    header { flex-direction: column; gap: 10px; }
+@media (max-width:700px){
+header{ padding:12px 16px; gap:12px; flex-direction:column; align-items:flex-start; }
+nav{ width:100%; display:flex; gap:8px; justify-content:flex-start; flex-wrap:wrap; }
+.hero h1{ font-size:34px; }
+/* Ajuste para o mobile do novo estilo de botão */
+    .btn-distrito{ 
+        padding:12px 20px; 
+        font-size:14px; 
+    }
+ #descricao{ font-size:15px; padding:16px; }
 }
