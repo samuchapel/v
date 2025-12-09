@@ -2,8 +2,8 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const supabase = createClient(
-    "https://SEU-PROJETO.supabase.co",    // 👉 COLOQUE SEU PROJECT URL AQUI
-    "sb_publishable_oQYvlgNxggrXE7EF_jajkw_pNACRETj"                 // 👉 COLOQUE SUA ANON PUBLIC KEY AQUI
+    "https://SEU-PROJETO.supabase.co", 
+    "sb_publishable_oQYvlgNxggrXE7EF_jajkw_pNACRETj"
 );
 
 // Account type selector
