@@ -1,7 +1,7 @@
 // =========================================
 // 🔗 Conexão com o Supabase
 // =========================================
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 const supabaseUrl = "https://SEU-PROJETO.supabase.co"; // 🔥 COLOQUE AQUI O SEU URL REAL
 const supabaseKey = "sb_publishable_oQYvlgNxggrXE7EF_jajkw_pNACRETj"; // sua key correta
