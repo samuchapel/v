@@ -316,32 +316,34 @@
             text-decoration: underline;
         }
 
-        .btn-register {
-            background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
-            color: #1a1a1a;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
-            margin-top: 10px;
-        }
+/* Aplicando o estilo de .btn-register ao botão com id registerBtn */
+#registerBtn {
+    background: linear-gradient(135deg, #d4af37 0%, #f0c654 100%);
+    color: #1a1a1a;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    margin-top: 10px;
+    width: 100%; /* opcional — remova se não quiser ocupar toda a largura */
+}
 
-        .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
-        }
+#registerBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
+}
 
-        .btn-register:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
+#registerBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
 
         .register-footer {
             text-align: center;
