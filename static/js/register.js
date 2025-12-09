@@ -1,7 +1,7 @@
 // =========================================
-// 🔗 Conexão com o Supabase
+// 🔗 Conexão com o Supabase (IMPORT CORRIGIDO)
 // =========================================
-import { supabase } from "./supabase.js"; 
+import { supabase } from "/static/js/supabase.js";
 
 // =========================================
 // 🔘 Account type selector
@@ -117,26 +117,21 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     
     let hasErrors = false;
 
-    // Email inválido
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('emailError').classList.add('show');
         hasErrors = true;
     }
 
-    // Senhas diferentes
     if (password !== confirmPassword) {
         document.getElementById('passwordError').classList.add('show');
         hasErrors = true;
     }
 
-    // Código do mestre
     if (accountType === 'master' && masterCode.length < 14) {
         document.getElementById('codeError').classList.add('show');
         hasErrors = true;
     }
 
-    // Termos não aceitos
     if (!terms) {
         alert("Você deve aceitar os Termos.");
         hasErrors = true;
@@ -144,12 +139,10 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     if (hasErrors) return;
 
-    // 🔥 SALVAR NO BANCO
     const saved = await salvarCadastro(firstName, lastName, username, email, password);
 
     if (!saved) return;
 
-    // 💬 Mensagens + redirecionamento
     if (accountType === "master") {
         alert(`Bem-vindo à Arena, Mestre ${firstName}!`);
         window.location.href = "mestrelg.html";

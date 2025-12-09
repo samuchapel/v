@@ -1,206 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Configuração básica de charset e responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Título da página -->
-    <title>Registro - Arena dos Jogos</title>
-
-    <!-- CSS específico da página de registro -->
+    <title>Cadastro Arena</title>
     <link rel="stylesheet" href="/static/styles/register.css">
-
-    <link rel="icon" type="image/png" href="/static/img/1logo.png">
 </head>
 
 <body>
 
-    <!-- Cabeçalho com logo e navegação -->
-    <header>
-        <a href="/index.html" class="logo">
-            <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
-            <span class="logo-text">jogos Vorazes</span>
-        </a>
+<header>
+    <a href="/index.html" class="logo">
+        <img src="/static/img/logo.png" alt="Logo Jogos Vorazes">
+        <span class="logo-text">Jogos Vorazes</span>
+    </a>
 
-        <nav>
-            <!-- Botões de navegação para outras áreas do site -->
-            <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
-            <button class="btn-header" onclick="window.location.href='/tamplates/Arsenal.html'">Arsenal</button>
-            <button class="btn-header" onclick="window.location.href='/tamplates/monstruario.html'">Monstruário</button>
-        </nav>
-    </header>
+    <nav>
+        <button class="btn-header" onclick="window.location.href='/tamplates/partições.html'">Distritos</button>
+        <button class="btn-header" onclick="window.location.href='/sobre.html'">Sobre</button>
+        <button class="btn-header active" onclick="window.location.href='/register.html'">Registrar</button>
+        <button class="btn-header" onclick="window.location.href='/login.html'">Login</button>
+    </nav>
+</header>
 
-    <main>
-        <div class="register-container">
+<main>
+    <div class="register-container">
+        <div class="register-header">
+            <h5 class="register-titulo">Cadastro</h5>
+            <h1 class="register-subtitulo">Criar Conta</h1>
+            <p class="register-descricao">
+                Escolha seu tipo de conta e entre para a Arena.
+            </p>
+        </div>
 
-            <!-- Cabeçalho do formulário -->
-            <div class="register-header">
-                <p class="register-titulo">Junte-se à Arena</p>
-                <h1 class="register-subtitulo">Criar Conta</h1>
-                <p class="register-descricao">
-                    Prepare-se para entrar nos jogos épicos. Escolha seu tipo de conta e comece sua jornada.
-                </p>
-            </div>
+        <!-- FORMULÁRIO -->
+        <form id="registerForm" class="register-form">
 
-            <!-- Escolha do tipo de conta (Jogador ou Mestre) -->
+            <!-- TIPOS DE CONTA -->
             <div class="account-type">
-                <!-- Opção Jogador -->
-                <label class="type-option active">
+                <div class="type-option active">
                     <input type="radio" name="accountType" value="player" checked>
                     <div class="type-icon">🎮</div>
-                    <div class="type-title">Jogador</div>
-                    <div class="type-desc">Participe dos jogos</div>
-                </label>
+                    <div class="type-title">Player</div>
+                    <div class="type-desc">Jogue e participe das arenas</div>
+                </div>
 
-                <!-- Opção Mestre -->
-                <label class="type-option">
+                <div class="type-option">
                     <input type="radio" name="accountType" value="master">
-                    <div class="type-icon">👑</div>
-                    <div class="type-title">Mestre</div>
-                    <div class="type-desc">Organize e controle</div>
-                </label>
+                    <div class="type-icon">⚔️</div>
+                    <div class="type-title">Master</div>
+                    <div class="type-desc">Gerencie arenas e jogadores</div>
+                </div>
             </div>
 
-            <!-- Formulário de registro -->
-            <form class="register-form" id="registerForm">
-
-                <!-- Nome e sobrenome lado a lado -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="firstName">Nome</label>
-                        <input 
-                            type="text" 
-                            id="firstName" 
-                            class="form-input" 
-                            placeholder="Seu primeiro nome"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="lastName">Sobrenome</label>
-                        <input 
-                            type="text" 
-                            id="lastName" 
-                            class="form-input" 
-                            placeholder="Seu sobrenome"
-                            required
-                        >
-                    </div>
+            <!-- CAMPOS PRINCIPAIS -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nome</label>
+                    <input id="firstName" type="text" class="form-input" required>
                 </div>
 
-                <!-- Nome de usuário -->
-                <div class="form-group full-width">
-                    <label class="form-label" for="username">Nome de Usuário</label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        class="form-input" 
-                        placeholder="Escolha seu nome de usuário"
-                        required
-                    >
-                    <!-- Mensagem caso o nome já exista -->
-                    <span class="error-message" id="usernameError">Nome de usuário já existe</span>
+                <div class="form-group">
+                    <label class="form-label">Sobrenome</label>
+                    <input id="lastName" type="text" class="form-input" required>
                 </div>
+            </div>
 
-                <!-- Email -->
-                <div class="form-group full-width">
-                    <label class="form-label" for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        class="form-input" 
-                        placeholder="seu@email.com"
-                        required
-                    >
-                    <!-- Email inválido -->
-                    <span class="error-message" id="emailError">Email inválido</span>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Nome de Usuário</label>
+                <input id="username" type="text" class="form-input" required>
+            </div>
 
-                <!-- Senha e confirmação de senha -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="password">Senha</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            class="form-input" 
-                            placeholder="Crie uma senha forte"
-                            required
-                        >
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input id="email" type="email" class="form-input" required>
+                <span id="emailError" class="error-message">Email inválido.</span>
+            </div>
 
-                        <!-- Indicador visual de força da senha -->
-                        <div class="password-strength">
-                            <div class="strength-bar"></div>
-                            <div class="strength-bar"></div>
-                            <div class="strength-bar"></div>
-                            <div class="strength-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="confirmPassword">Confirmar Senha</label>
-                        <input 
-                            type="password" 
-                            id="confirmPassword" 
-                            class="form-input" 
-                            placeholder="Repita sua senha"
-                            required
-                        >
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Senha</label>
+                    <input id="password" type="password" class="form-input" required>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
                     </div>
                 </div>
 
-                <!-- Erro caso as senhas não coincidam -->
-                <span class="error-message" id="passwordError">As senhas não coincidem</span>
-
-                <!-- Campo secreto para conta Mestre (aparece via JS) -->
-                <div class="form-group full-width" id="accessCodeGroup" style="display: none;">
-                    <label class="form-label" for="masterCode">Código de Acesso de Mestre</label>
-                    <input 
-                        type="text" 
-                        id="masterCode" 
-                        class="form-input" 
-                        placeholder="XXXX-XXXX-XXXX"
-                        maxlength="14"
-                    >
-                    <span class="error-message" id="codeError">Código de acesso inválido</span>
+                <div class="form-group">
+                    <label class="form-label">Confirmar Senha</label>
+                    <input id="confirmPassword" type="password" class="form-input" required>
+                    <span id="passwordError" class="error-message">As senhas não coincidem.</span>
                 </div>
+            </div>
 
-                <!-- Termos e política -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="terms" required>
-                    <label for="terms">
-                        Eu aceito os <a href="/tamplates/termos.html">Termos de Serviço</a>
-                    </label>
-                </div>
+            <!-- CAMPO DO CÓDIGO MASTER -->
+            <div id="accessCodeGroup" class="form-group" style="display:none;">
+                <label class="form-label">Código Master</label>
+                <input id="masterCode" class="form-input" placeholder="XXXX-XXXX-XXX">
+                <span id="codeError" class="error-message">Código inválido.</span>
+            </div>
 
-                <!-- Newsletter opcional -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="newsletter">
-                    <label for="newsletter">
-                        Quero receber notícias e atualizações sobre os jogos
-                    </label>
-                </div>
+            <!-- TERMOS -->
+            <div class="checkbox-group">
+                <input id="terms" type="checkbox">
+                <label for="terms">Aceito os <a href="#">Termos de Serviço</a></label>
+            </div>
 
-                <!-- Botão final -->
-                <button id="registerBtn">Registrar</button>
-            </form>
+            <!-- BOTÃO -->
+            <button id="registerBtn" class="btn-register">Registrar</button>
 
-            <!-- Link para login -->
             <div class="register-footer">
-                <p>Já possui uma conta? <a href="/playerlg.html">Entre agora</a></p>
+                <p>Já tem conta? <a href="/login.html">Faça login</a></p>
             </div>
-        </div>
-    </main>
 
-    <!-- Rodapé -->
-    <footer>
-        <p></p>
-        <p class="copy">© 2024 Projeto baseado Jogos Vorazes - Desenvolvido por Chapeleiro</p>
-    </footer>
+        </form>
+    </div>
+</main>
 
-    <script type="module" src="/static/js/supabase.js"></script>
-    <script type="module" src="/static/js/register.js"></script>
+<footer>
+    <p>Jogos Vorazes - Todos os direitos reservados</p>
+    <p class="copy">&copy; 2025</p>
+</footer>
+
+<script type="module" src="/static/js/supabase.js"></script>
+<script type="module" src="/static/js/register.js"></script>
+
 </body>
 </html>
