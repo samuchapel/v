@@ -289,4 +289,5 @@ function abrirLivro() {
 // =============================== FUNÇÕES GERAIS ================================
 function fecharModal(modalId) {
     document.getElementById(modalId).classList.remove('active');
-}
+
+};
