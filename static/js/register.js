@@ -1,3 +1,11 @@
+// 🔗 Conexão com o Supabase
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const supabase = createClient(
+    "https://SEU-PROJETO.supabase.co",    // 👉 COLOQUE SEU PROJECT URL AQUI
+    "sb_publishable_oQYvlgNxggrXE7EF_jajkw_pNACRETj"                 // 👉 COLOQUE SUA ANON PUBLIC KEY AQUI
+);
+
 // Account type selector
 const typeOptions = document.querySelectorAll('.type-option');
 const accessCodeGroup = document.getElementById('accessCodeGroup');
@@ -56,11 +64,38 @@ document.getElementById('masterCode').addEventListener('input', function(e) {
     e.target.value = value;
 });
 
+// =============================
+// 🔥 Função para salvar no Supabase
+// =============================
+async function salvarCadastro(firstName, lastName, username, email, password) {
+    const { data, error } = await supabase
+        .from("cadastrop")
+        .insert([
+            {
+                nome: firstName,
+                sobrenome: lastName,
+                nome_user: username,
+                email: email,
+                senha: password
+            }
+        ]);
+
+    if (error) {
+        console.error("Erro ao salvar no banco:", error);
+        alert("Erro ao salvar no banco: " + error.message);
+        return false;
+    }
+
+    console.log("Salvo no banco:", data);
+    return true;
+}
+
+// =======================================
 // Form validation and submission
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+// =======================================
+document.getElementById('registerForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     
-    // Reset error messages
     document.querySelectorAll('.error-message').forEach(msg => msg.classList.remove('show'));
     
     const firstName = document.getElementById('firstName').value;
@@ -101,26 +136,18 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     }
     
     if (hasErrors) return;
-    
-    console.log('Registration data:', {
-        firstName,
-        lastName,
-        username,
-        email,
-        accountType,
-        masterCode: accountType === 'master' ? masterCode : null
-    });
-    
+
+    // 🔥 SALVANDO NO BANCO
+    const saved = await salvarCadastro(firstName, lastName, username, email, password);
+
+    if (!saved) return;
+
+    // Mensagens e redirecionamento
     if (accountType === 'master') {
-        alert(`Bem-vindo à Arena, Mestre ${firstName}!\n\nSua conta de mestre foi criada com sucesso.\nPreparando acesso ao painel de controle...`);
-    } else {
-        alert(`Bem-vindo à Arena, ${firstName}!\n\nSua conta de jogador foi criada com sucesso.\nPreparando entrada na arena...`);
-    }
-    
-    // Redirect after successful registration
-    if (accountType === 'master') {
+        alert(`Bem-vindo à Arena, Mestre ${firstName}!\n\nSua conta de mestre foi criada com sucesso.`);
         window.location.href = 'mestrelg.html';
     } else {
+        alert(`Bem-vindo à Arena, ${firstName}!\n\nSua conta de jogador foi criada com sucesso.`);
         window.location.href = 'playerlg.html';
     }
 });
