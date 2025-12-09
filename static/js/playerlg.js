@@ -1,10 +1,5 @@
 // 🔗 Conexão com o Supabase
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-const supabase = createClient(
-    "https://rcwdvxbjqqtnkyriaciy.supabase.co", 
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjd2R2eGJqcXF0bmt5cmlhY2l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyOTc1ODUsImV4cCI6MjA4MDg3MzU4NX0.eg1zeu6M5-4AiS5LcwX6-4RUxuKi1xAGsMuTO7vzTjI"
-);
+import { supabase } from "./supabase.js"; 
 
 
 // Função de login
